@@ -1,0 +1,94 @@
+/* Carousel.css */
+.carousel-container-2 {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-color: #585dcc;
+}
+
+.carousel-1 {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  justify-content: center;
+  margin: 0;
+  @media (max-width: 700px) {
+    align-items: normal;
+  }
+}
+.carousel-texts{
+  text-align: center;
+  margin: 2em auto 1.5em ;
+  max-width: 90%;
+  @media (max-width:800px) {
+    margin: .5em auto 1.5em;
+  }
+}
+
+.dot-container {
+  text-align: center;
+  margin-top: 10px;
+  @media (max-width:700px) {
+    margin-top: 15px;
+  }
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #ffffff;
+}
+
+.prev-2,
+.next-2 {
+  position: absolute;
+  top: 97%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #fff;
+  background-color: #33333300;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-2 {
+  left: 20%;
+  @media (max-width:700px) {
+    left: 15%;
+  }
+}
+
+.next-2 {
+  right: 20%;
+  @media (max-width:700px) {
+    right: 15%;
+  }
+}
+
+
+.prev-2:focus {
+  background-color:#2ab7a900 !important;
+}
+
+.next-2:focus {
+  background-color:#2ab7a900 !important;
+}

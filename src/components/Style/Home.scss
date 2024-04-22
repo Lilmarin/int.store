@@ -1,0 +1,83 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.home-component {
+  background-color: #585dcc;
+  background-image: url("../../Img/Backkground_Purple.png");
+  min-height: 100vh !important;
+  .person-one {
+    padding: 0.7vh 2.3vh;
+  }
+  .Columns-first {
+    margin: 0;
+    .logo {
+      max-width: 20%;
+      @media (max-width: 600px) {
+        max-width: 70%;
+      }
+    }
+  }
+  .simply-money {
+    margin-bottom: 1em;
+    @media (max-width: 700px) {
+      margin-bottom: 0.5em;
+    }
+  }
+  .enlacebtn2 {
+    width: 100%;
+  }
+
+  .Left-Container {
+    position: relative;
+    max-width: 100%;
+    .img-back {
+      max-width: 90%;
+      position: absolute;
+      z-index: 0;
+      animation: spin 40s linear infinite;
+    }
+    .img-front {
+      z-index: 1;
+      position: relative;
+      max-width: 90%;
+    }
+  }
+  .Left-Container-2 {
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .img-back {
+      max-width: 90%;
+      position: absolute;
+      z-index: 0;
+      animation: spin 40s linear infinite;
+    }
+    .img-front-circle {
+      z-index: 1;
+      position: relative;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+  }
+  .bottom-function {
+    padding-bottom: 0em;
+    svg {
+      max-width: 90%;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+}

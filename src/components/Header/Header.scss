@@ -1,0 +1,43 @@
+$roboto: "Roboto", sans-serif;
+$iphone8plus: "max-width: 450px";
+$ipad: "max-width:780px";
+$display4k: "min-width:2000px";
+
+.Header-container {
+  width: 90%;
+  position: absolute;
+  background-color: #ffffff00;
+  display: flex;
+  margin: 2em 5%;
+  z-index: 9000;
+  @media (max-width: 900px) {
+    margin: 1em 5%;
+  }
+  .la-select {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 45% 7%;
+    gap: 48%;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 800px) {
+      grid-template-columns: 45% 30%;
+      gap: 25%;
+    }
+
+    .Nav-left {
+      .logo {
+        max-width: 40%;
+        @media (max-width: 800px) {
+          max-width: 90%;
+        }
+      }
+    }
+    .Select-item-2 {
+      border-radius: 0px;
+      border-bottom: 1px solid #ffffff;
+      color: #ffffff;
+      border: none !important;
+    }
+  }
+}

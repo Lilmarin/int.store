@@ -1,0 +1,27 @@
+$roboto: "Roboto", sans-serif;
+$iphone8plus: "max-width: 450px";
+$ipad: "max-width:780px";
+$display4k: "min-width:2000px";
+
+.select-xvc {
+  display: flex;
+  border: none;
+  border-bottom: none;
+  width: 100%;
+  .idiomas {
+    background-color: #ffffff00;
+    width: 100%;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 1.5em;
+    border:none !important;
+    option {
+      color: #ffffff !important;
+      background-color: #ffffff;
+      color: #2a2fa9 !important;
+      border: none;
+      border-radius: 0px;
+      padding: 10px;
+    }
+  }
+}
