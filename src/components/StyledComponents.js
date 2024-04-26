@@ -10,7 +10,7 @@ export const Boton = styled.button`
   width: ${(props) => (props ? (props.bwidth ? props.bwidth : "95%") : "95%")};
   border-radius: 32px;
   padding: 1.5vh 2.8vh;
-  font-size: 1.8vh;
+  font-size: 2.4vh;
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
@@ -301,7 +301,7 @@ export const HPHome = styled.p`
 
 export const Bottomtext = styled.p`
   font-family: "Red Hat Display";
-  font-size: 1.4vh;
+  font-size: 2vh;
   font-style: normal;
   font-weight: 400;
   line-height: 2vh;
