@@ -10,11 +10,13 @@ import {
   PurpleSubtitle,
 } from "./StyledComponents";
 import Logoint from "./../Img/IconInt.png";
+import LogoEspanol from "./../Img/LogoEspanol.svg";
 import { I18n } from "aws-amplify/utils";
 import Form from "./Form/Form";
 
 const Registro = () => {
   const [loading, setLoading] = React.useState(true);
+  const language = localStorage.getItem("language") ?? "en";
   return (
     <div className="registro-component">
       <Divcolumns2
