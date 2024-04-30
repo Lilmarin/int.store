@@ -11,9 +11,10 @@ import {
 } from "./StyledComponents";
 import Logoint from "./../Img/IconInt.png";
 import { I18n } from "aws-amplify/utils";
+import Form from "./Form/Form";
 
 const Registro = () => {
-  // Renderizar la salida del componente
+  const [loading, setLoading] = React.useState(true);
   return (
     <div className="registro-component">
       <Divcolumns2
@@ -37,7 +38,13 @@ const Registro = () => {
         <DivColumnRegister className="registro-right">
           <PurpleSubtitle>{I18n.get("RPWaitList")}</PurpleSubtitle>
           <HText2>{I18n.get("RTSininnow")}</HText2>
+          {loading && (
+            <>
+              <Form />
+            </>
+          )}
           <iframe
+            hidden={loading}
             className="Iframe-form"
             src="https://link.superleads.mx/widget/form/AX2ylBDNIejjpZYbFKGo"
             id="inline-AX2ylBDNIejjpZYbFKGo"
@@ -53,6 +60,7 @@ const Registro = () => {
             data-layout-iframe-id="inline-AX2ylBDNIejjpZYbFKGo"
             data-form-id="AX2ylBDNIejjpZYbFKGo"
             title="Lista de espera V1"
+            onLoad={() => setLoading(false)}
           ></iframe>
           <script src="https://link.superleads.mx/js/form_embed.js"></script>
         </DivColumnRegister>

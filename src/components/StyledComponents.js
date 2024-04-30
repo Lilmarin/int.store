@@ -308,3 +308,49 @@ export const Bottomtext = styled.p`
   color: #ffffff;
   margin: 2em 0 1em;
 `;
+
+export const FormSqueleton = styled.form`
+  width: 55%;
+  height: 68%;
+`;
+
+export const DivForm = styled.div`
+  margin-top: ${(props) =>
+    props ? (props.margintop ? props.margintop : "0") : "0"};
+  display: flex;
+  flex-direction: ${(props) =>
+    props ? (props.flexdirection ? props.flexdirection : "") : ""};
+  justify-content: start;
+`;
+export const InputContainer = styled.div`
+  border-bottom: 1px solid #dfdede;
+  padding-bottom: 16px;
+  margin-top: ${(props) =>
+    props ? (props.margintop ? props.margintop : "0px") : "0px"};
+`;
+export const CheckBoxContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin-top: 3px;
+`;
+
+export const CheckBoxInput = styled.input`
+  margin-top: -10px;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+`;
+
+export const ButtonSqueleton = styled.button`
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #565dd1;
+  color: white;
+  height: 45px;
+  width: 100px;
+  border-radius: 32px;
+  border: none;
+  cursor: pointer;
+`;
