@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../components/Style/Error404.scss";
 import { I18n } from "aws-amplify/utils";
 import Imagentelefono from "../Img//Phone_Without_Vector.png";
-import Vectorint from "../Img/Vector_Int_White.png";
 import Circleint from "../Img/Circle_Int.png";
 import PhoneTerminal from "../Img/PhoneTerminal.png";
 import chevron from "../Img/chevron-right.svg";

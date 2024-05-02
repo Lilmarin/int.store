@@ -5,7 +5,7 @@ import Select from "../Select";
 import { I18n } from "aws-amplify/utils";
 import { NavLink } from "react-router-dom";
 import LogoTipo from "../../Img/Logotipo.png";
-import LogoEspanol from "../../Img/LogoEspanol.svg";
+import LogoEspanol from "../../Img/LogoEspanol.png";
 // eslint-disable-next-line
 const Header = ({ selectedOption, handler, executeScroll }) => {
   const [isOpen, setIsOpen] = useState(false);
