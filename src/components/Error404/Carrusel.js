@@ -2,8 +2,7 @@ import Imagentelefono from "../../Img//Phone_Without_Vector.png";
 import Vectorint from "../../Img/Vector_Int_White.png";
 import Circleint from "../../Img/Circle_Int.png";
 import PhoneTerminal from "../../Img/PhoneTerminal.png";
-import chevron from "../../Img/chevron-right.svg";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 const Carrusel = (props) => {
   const images = [Circleint, Imagentelefono, PhoneTerminal];
 
