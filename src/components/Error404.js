@@ -7,6 +7,7 @@ import PhoneTerminal from "../Img/PhoneTerminal.png";
 import chevron from "../Img/chevron-right.svg";
 import Carrusel from "./Error404/Carrusel.js";
 import background from "../Img/Backkground_Purple.png";
+import { NavLink } from "react-router-dom";
 const Error404 = () => {
   const images = [Circleint, Imagentelefono, PhoneTerminal];
 
@@ -26,6 +27,7 @@ const Error404 = () => {
         }}
         className="relative w-full sm:flex sm:h-full sm:flex-col sm:px-[16px] md:h-screen md:px-[80px] lg:grid lg:grid-cols-2 lg:px-[100px]"
       >
+        {/**Column 1*/}
         <div className="w-full  sm:h-full md:h-[425px] lg:h-screen">
           <section className="text-white sm:pt-[97px] lg:pt-[200px]">
             <p className="sm:text-[12px] md:text-center md:text-[20px] lg:text-start">
@@ -37,11 +39,14 @@ const Error404 = () => {
             <h3 className="mt-4 font-light  sm:text-[12px] sm:leading-[18px] md:text-[20px] md:leading-[30px] lg:text-[24px] lg:leading-[32px]">
               {I18n.get("EText")}
             </h3>
-            <button className="w-full rounded-[32px] bg-white text-[#2A2FAB] sm:mt-[24px] sm:h-[40px] sm:text-[14px] md:h-[44px] md:text-[16px] lg:mt-[32px] lg:h-[60px] lg:text-[18px]">
-              {I18n.get("GetDomain")}
-            </button>
+            <NavLink to="/registro_principal">
+              <button className="w-full rounded-[32px] bg-white text-[#2A2FAB] sm:mt-[24px] sm:h-[40px] sm:text-[14px] md:h-[44px] md:text-[16px] lg:mt-[32px] lg:h-[60px] lg:text-[18px]">
+                {I18n.get("GetDomain")}
+              </button>
+            </NavLink>
           </section>
         </div>
+        {/**Column 2*/}
         <div className="relative flex w-full justify-center sm:mt-0 sm:h-[390px] md:h-[475px] lg:mt-0 lg:h-screen lg:items-center">
           <Carrusel
             positionCarousel={positionCarousel}
