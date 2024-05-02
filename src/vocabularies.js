@@ -77,6 +77,8 @@ const dict = {
     CarrouselT6:
       "El roble duerme en la bellota. El pájaro espera en el huevo, y en la más alta visión del alma, un ángel despierto se agita. Los sueños son las semillas de la realidad.",
     CarrouselTA6: "Napoleon Hill",
+    Error404Ups: "¡Ups!",
+    GetDomain: "Obtener tu dominio",
   },
   en: {
     //Traducciones de terminal
@@ -149,6 +151,8 @@ const dict = {
       "If you're not learning while you're earning, you're cheating yourself and missing out on the best part of your compensation.",
     CarrouselT6:
       "The oak sleeps in the acorn. The bird waits in the egg, and in the soul's highest vision, an awakened angel stirs. Dreams are the seeds of reality.",
+    Error404Ups: "Ups!",
+    GetDomain: "Get your domain",
   },
 };
 export default dict;
