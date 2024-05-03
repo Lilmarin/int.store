@@ -25,9 +25,9 @@ const Error404 = () => {
         style={{
           fontFamily: "Red Hat Display",
           backgroundImage: `url(${background})`,
-          minHeight: "100vh", // Asegura que el contenedor tenga al menos el alto de la pantalla
+          height: "100vh",
         }}
-        className="relative w-full overflow-auto sm:px-[16px] sm:py-[97px] md:px-[80px] lg:px-[100px] lg:py-[130px]"
+        className="relative w-full sm:px-[16px] sm:py-[97px] md:px-[80px] lg:px-[100px] lg:pt-[100px]"
       >
         <section className="flex sm:flex-col lg:h-[633px] lg:w-[1236px] lg:flex-row">
           {/* Contenido */}
@@ -75,7 +75,7 @@ const Error404 = () => {
             </section>
           </div>
         </section>
-        <p className="absolute left-0 right-0 text-center text-[20px] text-white sm:bottom-[20px] md:bottom-[68px]">
+        <p className="absolute left-0 right-0 text-center text-[20px] text-white sm:bottom-[20px] md:bottom-[40px]">
           {I18n.get("IBrand")}
         </p>
       </div>
