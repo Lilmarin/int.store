@@ -22,16 +22,16 @@ const Carrusel = (props) => {
           src={image}
           alt="Carousel"
           className={` h-full w-full ${index === props.positionCarousel ? "opacity-100" : "hidden opacity-0"}
-          ${index === 0 ? "sm:ml-3 sm:mt-3 sm:h-[270px] sm:w-[270px] md:mt-12 md:h-[360px] md:w-[360px] lg:ml-6 lg:h-[550px] lg:w-[550px]" : ""}
-          ${index === 2 ? " sm:mt-3  sm:h-[250px] sm:w-[250px] md:mt-12 md:h-[350px] md:w-[350px] lg:h-[525px] lg:w-[525px]" : ""}
-          ${index === 1 ? " sm:h-[300px] sm:w-[260px] md:h-[450px] md:w-[430px] lg:h-[620px] lg:w-[525px]" : ""} z-10`}
+          ${index === 0 ? "sm:ml-3 sm:mt-12 sm:h-[270px] sm:w-[270px] md:mt-12 md:h-[360px] md:w-[360px] lg:ml-6 lg:h-[550px] lg:w-[550px]" : ""}
+          ${index === 2 ? " sm:mt-12  sm:h-[250px] sm:w-[250px] md:mt-12 md:h-[350px] md:w-[350px] lg:h-[525px] lg:w-[525px]" : ""}
+          ${index === 1 ? " sm:h-[325px] sm:w-[260px] md:h-[450px] md:w-[430px] lg:h-[620px] lg:w-[525px]" : ""} z-10`}
         />
       ))}
       {props.positionCarousel === 1 && (
         <img
           src={Vectorint}
           alt="Carousel"
-          className="absolute z-0 animate-spin-slow sm:h-[300px] sm:w-[325px] md:h-[450px] md:w-[450px] lg:h-[600px]  lg:w-[600px]"
+          className="absolute z-0 animate-spin-slow sm:mt-4 sm:h-[325px] sm:w-[325px] md:h-[450px] md:w-[450px] lg:h-[600px]  lg:w-[600px]"
         />
       )}
     </section>

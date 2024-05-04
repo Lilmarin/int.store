@@ -3,11 +3,20 @@ body {
   height: 100%;
   margin: 0;
 }
+.carrusel-component {
+  background-image: url("../../Img/Backkground_Purple.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+}
 
 .home-component {
   background-color: #585dcc;
   background-image: url("../../Img/Backkground_Purple.png");
-  min-height: 100vh !important;
+  min-height: 100% !important;
   .person-one {
     padding: 0.7vh 2.3vh;
   }
