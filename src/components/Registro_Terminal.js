@@ -10,7 +10,6 @@ import {
   PurpleSubtitle,
 } from "./StyledComponents";
 import Logoint from "./../Img/IconInt.png";
-import LogoEspanol from "./../Img/LogoEspanol.svg";
 import { I18n } from "aws-amplify/utils";
 import Form from "./Form/Form";
 

@@ -29,7 +29,7 @@ const Error404 = () => {
         }}
         className="relative w-full sm:px-[16px] sm:py-[97px] md:px-[80px] lg:px-[100px] lg:pt-[100px]"
       >
-        <section className="flex sm:flex-col lg:h-[633px] lg:w-[1236px] lg:flex-row">
+        <section className="flex  sm:flex-col lg:h-[633px] lg:w-[1236px] lg:flex-row">
           {/* Contenido */}
           <div className="lg:w-[50%] lg:pt-[130px]">
             <section className={`text-white`}>
