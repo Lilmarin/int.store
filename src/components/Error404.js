@@ -27,30 +27,30 @@ const Error404 = () => {
           backgroundImage: `url(${background})`,
           height: "100vh",
         }}
-        className="relative w-full sm:px-[16px] sm:py-[97px] md:px-[80px] lg:px-[100px] lg:pt-[100px]"
+        className="justify-betweens relative flex w-full flex-col border sm:px-[16px] sm:py-[70px] md:px-[80px] lg:px-[100px] lg:pt-[100px]"
       >
-        <section className="flex  sm:flex-col lg:h-[633px] lg:w-[1236px] lg:flex-row">
+        <section className="flex border sm:flex-col lg:h-[633px] lg:w-[1236px] lg:flex-row">
           {/* Contenido */}
-          <div className="lg:w-[50%] lg:pt-[130px]">
+          <div className="lg:w-[50%] lg:pt-[115px]">
             <section className={`text-white`}>
               <h4 className="sm:text-[12px] md:text-center md:text-[20px] lg:text-start">
                 {I18n.get("Error404Ups")}
               </h4>
-              <h1 className="font-bold sm:text-[36px] sm:leading-[44px] md:text-center md:text-[48px] md:leading-[60px] lg:text-start lg:text-[70px] lg:leading-[90px]">
+              <h1 className="font-bold sm:text-[18px] sm:leading-[22px] md:text-center md:text-[48px] md:leading-[60px] lg:text-start lg:text-[70px] lg:leading-[90px]">
                 {I18n.get("ENotFound")}
               </h1>
-              <p className="mt-2 font-light sm:text-[12px] sm:leading-[18px] md:text-[20px] md:leading-[30px] lg:text-[24px] lg:leading-[32px]">
+              <p className="mt-1 font-light sm:text-[12px] sm:leading-[18px] md:text-[20px] md:leading-[30px] lg:text-[24px] lg:leading-[32px]">
                 {I18n.get("EText")}
               </p>
               <NavLink to="/registro_principal">
-                <button className="w-full rounded-[32px] bg-white text-[#2A2FAB] sm:mt-[24px] sm:h-[40px] sm:text-[14px] md:h-[44px] md:text-[16px] lg:mt-[32px] lg:h-[60px] lg:text-[18px]">
+                <button className="w-full rounded-[32px] bg-white text-[#2A2FAB] sm:mt-[12px] sm:h-[40px] sm:text-[14px] md:h-[44px] md:text-[16px] lg:mt-[32px] lg:h-[60px] lg:text-[18px]">
                   {I18n.get("GetDomain")}
                 </button>
               </NavLink>
             </section>
           </div>
           {/* Carrusel */}
-          <div className="relative sm:h-[360px] md:h-[470px] lg:h-auto lg:w-[50%]">
+          <div className="relative sm:h-[320px] md:h-[470px] lg:h-auto lg:w-[50%]">
             <Carrusel
               positionCarousel={positionCarousel}
               moveToRight={moveToRight}
@@ -75,7 +75,7 @@ const Error404 = () => {
             </section>
           </div>
         </section>
-        <p className="absolute left-0 right-0 text-center text-[20px] text-white sm:bottom-[20px] md:bottom-[40px]">
+        <p className="absolute bottom-0 left-0 right-0 text-center text-white sm:text-[16px] md:text-[20px] ">
           {I18n.get("IBrand")}
         </p>
       </div>
