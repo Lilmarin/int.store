@@ -13,10 +13,11 @@ import Terminal from "./components/Terminal";
 import vocabularies from "../src/vocabularies";
 import { I18n } from "aws-amplify/utils";
 import PageWrapper from "./components/PageWrapper/PageWrapper";
+import Tarjetas from "./components/Tarjetas";
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(
-    localStorage.getItem("language") ?? "en"
+    localStorage.getItem("language") ?? "en",
   );
 
   I18n.setLanguage(selectedOption);
@@ -80,6 +81,14 @@ function App() {
           element={
             <PageWrapper selectedOption={selectedOption} handler={handler}>
               <Gracias />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/tarjetas"
+          element={
+            <PageWrapper selectedOption={selectedOption} handler={handler}>
+              <Tarjetas />
             </PageWrapper>
           }
         />

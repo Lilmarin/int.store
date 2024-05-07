@@ -23,7 +23,26 @@
       max-width: 90%;
     }
   }
-
+  .home-component {
+    background-color: #585dcc;
+    background-image: url("../../Img/Backkground_Purple.png");
+    min-height: 100vh !important;
+    @media (max-width: 800px) {
+      padding-top: 7vh;
+    }
+    .Columns-first {
+      margin: 1em 0 0em;
+      @media (max-width: 600px) {
+        margin: 0;
+      }
+      .logo {
+        max-width: 35%;
+        @media (max-width: 600px) {
+          max-width: 90%;
+        }
+      }
+    }
+  }
   .Left-Container {
     position: relative;
     max-width: 100%;

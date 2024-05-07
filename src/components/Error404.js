@@ -24,6 +24,7 @@ const Error404 = () => {
       <div
         style={{
           fontFamily: "Red Hat Display",
+          height: "100%",
         }}
         className="justify-betweens carrusel-component relative flex h-full w-full  flex-col sm:px-[16px] sm:py-[70px] md:px-[80px] lg:px-[100px] lg:pt-[100px]"
       >
@@ -42,7 +43,7 @@ const Error404 = () => {
               </p>
               <NavLink to="/registro_principal">
                 <button className="w-full rounded-[32px] bg-white text-[#2A2FAB] sm:mt-[24px] sm:h-[40px] sm:text-[14px] md:h-[44px] md:text-[16px] lg:mt-[32px] lg:h-[60px] lg:text-[18px]">
-                  {I18n.get("GetDomain")}
+                  {I18n.get("Error404Button")}
                 </button>
               </NavLink>
             </section>

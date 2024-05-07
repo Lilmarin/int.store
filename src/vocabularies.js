@@ -78,7 +78,9 @@ const dict = {
       "El roble duerme en la bellota. El pájaro espera en el huevo, y en la más alta visión del alma, un ángel despierto se agita. Los sueños son las semillas de la realidad.",
     CarrouselTA6: "Napoleon Hill",
     Error404Ups: "¡Ups!",
+    Error404Button: "Crear cuenta (Lista de espera)",
     GetDomain: "Obtener tu dominio",
+    TarjetasTitle: "LA PRIMERA TARJETA DE DÉBITO CON TERMINAL INCLUIDA",
   },
   en: {
     //Traducciones de terminal
@@ -152,7 +154,9 @@ const dict = {
     CarrouselT6:
       "The oak sleeps in the acorn. The bird waits in the egg, and in the soul's highest vision, an awakened angel stirs. Dreams are the seeds of reality.",
     Error404Ups: "Ups!",
+    Error404Button: "Create account (Waiting list)",
     GetDomain: "Get your domain",
+    TarjetasTitle: "THE FIRST DEBIT CARD WITH TERMINAL INCLUDED",
   },
 };
 export default dict;
