@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../components/Style/Error404.scss";
 import { I18n } from "aws-amplify/utils";
 import Imagentelefono from "../Img//Phone_Without_Vector.png";
@@ -10,6 +10,9 @@ import background from "../Img/Backkground_Purple.png";
 import { NavLink } from "react-router-dom";
 
 const Error404 = () => {
+  useEffect(() => {
+    window.location.href = "https://intportal.vercel.app/perfil/terminal";
+  }, []);
   const images = [Circleint, Imagentelefono, PhoneTerminal];
   const [positionCarousel, setPositionCarousel] = useState(0);
   const moveToRight = () => {
@@ -21,6 +24,7 @@ const Error404 = () => {
 
   return (
     <>
+      {/*
       <div
         style={{
           fontFamily: "Red Hat Display",
@@ -29,7 +33,7 @@ const Error404 = () => {
         className="justify-betweens carrusel-component relative flex h-full w-full  flex-col sm:px-[16px] sm:py-[70px] md:px-[80px] lg:px-[100px] lg:pt-[100px]"
       >
         <section className="flex sm:flex-col lg:h-[633px] lg:w-[1236px] lg:flex-row">
-          {/* Contenido */}
+
           <div className="lg:w-[50%] lg:pt-[115px]">
             <section className={`text-white`}>
               <h4 className="sm:text-[16px] md:text-center md:text-[20px] lg:text-start">
@@ -48,7 +52,6 @@ const Error404 = () => {
               </NavLink>
             </section>
           </div>
-          {/* Carrusel */}
           <div className="relative sm:h-[375px] md:h-[470px] lg:h-auto lg:w-[50%]">
             <Carrusel
               positionCarousel={positionCarousel}
@@ -61,7 +64,6 @@ const Error404 = () => {
             <button className="absolute top-1/2 z-10 flex h-9 w-9 rotate-180 items-center justify-center rounded-full bg-white sm:left-0 md:left-5 lg:left-0">
               <img src={chevron} alt="chevron" onClick={moveToLeft} />
             </button>
-            {/*Indicador de imagen*/}
             <section className="absolute bottom-0 left-0 right-0 flex justify-center gap-4 pb-4">
               {images.map((image, index) => (
                 <div
@@ -77,7 +79,7 @@ const Error404 = () => {
         <p className="absolute left-0 right-0 text-center text-white sm:bottom-5 sm:text-[16px] md:bottom-10 md:text-[20px] ">
           {I18n.get("IBrand")}
         </p>
-      </div>
+            </div>*/}
     </>
   );
 };
