@@ -1,26 +1,40 @@
-import { Homecomponent } from "./StyledComponents";
 import logoEspañol from "./../Img/LogoEspanol.png";
+import logoingles from "./../Img/Logotipo.png";
 import background_Purple from "./../Img/Backkground_Purple.png";
-import { I18n } from "aws-amplify/utils";
 import QrGenerate from "./Qr/QrGenerate";
 import QrPrevGenerate from "./Qr/QrPrevGenerate";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { I18n } from "aws-amplify/utils";
 const Qr = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [url, setUrl] = useState("");
+  const [language, setLanguage] = useState("");
+  useEffect(() => {
+    const lg = localStorage.getItem("language") || "es";
+    console.log(lg);
+    setLanguage(lg);
+  }, []);
   return (
     <div
-      className="flex h-full w-full flex-col items-center"
-      style={{ backgroundImage: `url(${background_Purple})`, height: "100vh" }}
+      className="relative flex w-full flex-col items-center sm:h-[1100px] lg:h-screen"
+      style={{ backgroundImage: `url(${background_Purple})` }}
     >
       <section>
-        <img
-          src={logoEspañol}
-          alt="Logotipo Español"
-          className="sm:mt-[21px] sm:h-[76px] sm:w-[268px] lg:mt-[48px] lg:h-[152px] lg:w-[533px]"
-        ></img>
+        {language === "es" ? (
+          <img
+            src={logoEspañol}
+            alt="Logotipo Español"
+            className="sm:mt-[21px] sm:h-[76px] sm:w-[268px] lg:mt-[48px] lg:h-[152px] lg:w-[533px]"
+          ></img>
+        ) : (
+          <img
+            src={logoingles}
+            alt="Logotipo Español"
+            className="sm:mt-[21px] sm:h-[76px] sm:w-[268px] lg:mt-[48px] lg:h-[152px] lg:w-[533px]"
+          ></img>
+        )}
       </section>
-      <section className="flex h-[400px] justify-between border sm:flex-col lg:w-[732px] lg:flex-row">
+      <section className="flex justify-between sm:mt-[31px] sm:h-[840px] sm:flex-col sm:gap-10 lg:mt-[45px] lg:h-[400px] lg:w-[732px] lg:flex-row">
         {/**Left */}
         <QrGenerate
           url={url}
@@ -31,6 +45,9 @@ const Qr = () => {
         {/**Right */}
         <QrPrevGenerate url={url} selectedImage={selectedImage} />
       </section>
+      <footer className="text-[20px] font-light text-white sm:relative sm:mt-10 lg:absolute lg:bottom-10 lg:mt-[200px]">
+        {I18n.get("IBrand")}
+      </footer>
     </div>
   );
 };
