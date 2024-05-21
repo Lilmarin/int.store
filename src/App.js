@@ -14,6 +14,7 @@ import vocabularies from "../src/vocabularies";
 import { I18n } from "aws-amplify/utils";
 import PageWrapper from "./components/PageWrapper/PageWrapper";
 import Tarjetas from "./components/Tarjetas";
+import Qr from "./components/Qr";
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(
@@ -89,6 +90,14 @@ function App() {
           element={
             <PageWrapper selectedOption={selectedOption} handler={handler}>
               <Tarjetas />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/QR"
+          element={
+            <PageWrapper selectedOption={selectedOption} handler={handler}>
+              <Qr />
             </PageWrapper>
           }
         />

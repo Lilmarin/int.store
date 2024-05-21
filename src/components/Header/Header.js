@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import Select from "../Select";
 // eslint-disable-next-line
@@ -10,9 +10,15 @@ import LogoEspanol from "../../Img/LogoEspanol.png";
 const Header = ({ selectedOption, handler, executeScroll }) => {
   const [isOpen, setIsOpen] = useState(false);
   const language = localStorage.getItem("language") ?? "en";
+  const [url, setUrl] = useState("");
+  useEffect(() => {
+    const path = window.location.pathname;
+    setUrl(path);
+    console.log(url);
+  }, []);
 
   return (
-    <div className="Header-container">
+    <div className={` ${url === "/QR" ? "hidden" : "Header-container"}`}>
       <div className="la-select" isOpen={isOpen}>
         <NavLink to="/" className="Nav-left">
           {language === "es" ? (

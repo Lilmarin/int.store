@@ -81,6 +81,15 @@ const dict = {
     Error404Button: "Crear cuenta (Lista de espera)",
     GetDomain: "Obtener tu dominio",
     TarjetasTitle: "LA PRIMERA TARJETA DE DÉBITO CON TERMINAL INCLUIDA",
+    //Traducciones de QR
+    QrGenerate: "Generar Código QR",
+    QrLoading: "Cargar imagen",
+    QrUrl: "URL",
+    QrGenerateQr: "Generar QR",
+    QrShare: "Compartir QR",
+    QrDownload: "Descargar QR",
+    QrCopy: "Copiar URL",
+    QrClean: "Limpiar",
   },
   en: {
     //Traducciones de terminal
@@ -157,6 +166,15 @@ const dict = {
     Error404Button: "Create account (Waiting list)",
     GetDomain: "Get your domain",
     TarjetasTitle: "THE FIRST DEBIT CARD WITH TERMINAL INCLUDED",
+    //Traducciones de QR
+    QrGenerate: "Generate QR Code",
+    QrLoading: "Load image",
+    QrUrl: "URL",
+    QrGenerateQr: "Generate QR",
+    QrShare: "Share QR",
+    QrDownload: "Download QR",
+    QrCopy: "Copy URL",
+    QrClean: "Clean",
   },
 };
 export default dict;
