@@ -4,6 +4,7 @@ import AvatarDefault from "../../Img/AvatarDefault.svg";
 import { useEffect, useState } from "react";
 import dowload from "../../Img/download.svg";
 import content_copy from "../../Img/content_copy.svg";
+import default_logo_QR from "../../Img/logo192.png";
 const axios = require("axios");
 
 const QrPrevGenerate = (props) => {
@@ -50,7 +51,7 @@ const QrPrevGenerate = (props) => {
             renderAs="svg"
           />
           <img
-            src={props.selectedImage || AvatarDefault}
+            src={props.selectedImage || default_logo_QR}
             alt="logo"
             style={{
               position: "absolute",
