@@ -11,7 +11,8 @@ import { NavLink } from "react-router-dom";
 
 const Error404 = () => {
   useEffect(() => {
-    window.location.href = "https://intportal.vercel.app/perfil/terminal";
+    window.location.href =
+      "https://intportal.vercel.app/tuDominio/terminal/MXN_0";
   }, []);
   const images = [Circleint, Imagentelefono, PhoneTerminal];
   const [positionCarousel, setPositionCarousel] = useState(0);

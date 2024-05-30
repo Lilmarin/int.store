@@ -90,6 +90,7 @@ const dict = {
     QrDownload: "Descargar QR",
     QrCopy: "Copiar URL",
     QrClean: "Limpiar",
+    QrUrlImage: "URL Imagen",
   },
   en: {
     //Traducciones de terminal
@@ -175,6 +176,7 @@ const dict = {
     QrDownload: "Download QR",
     QrCopy: "Copy URL",
     QrClean: "Clean",
+    QrUrlImage: "URL Image",
   },
 };
 export default dict;
