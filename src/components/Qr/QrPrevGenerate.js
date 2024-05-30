@@ -10,14 +10,14 @@ import axios from "axios";
 const QrPrevGenerate = (props) => {
   const [buttonDisabled, setButtonDisabled] = useState(true); // [1
   useEffect(() => {
-    if (props.urlText && props.urlImage) {
+    if (props.url && props.selectedImage) {
       setButtonDisabled(false);
       return;
     }
     setButtonDisabled(true);
-  }, [props.urlText, props.urlImage]);
+  }, [props.url, props.selectedImage]);
   const handleCopy = () => {
-    navigator.clipboard.writeText(props.urlText);
+    navigator.clipboard.writeText(props.url);
   };
   /**
    * Funcion para descargar el QR
@@ -25,8 +25,8 @@ const QrPrevGenerate = (props) => {
    */
   const handleDownload = async () => {
     const data = {
-      text: props.urlText,
-      imageUrl: props.urlImage,
+      text: props.url,
+      centerImage: props.selectedImage,
     };
 
     try {
@@ -62,33 +62,31 @@ const QrPrevGenerate = (props) => {
       <div className="ml-[10px] mt-2 flex items-center justify-normal">
         <div style={{ position: "relative" }}>
           <QRCode
-            value={props.urlText}
+            value={props.url}
             size={189}
             includeMargin={true}
             renderAs="svg"
           />
-          <div className="absolute left-1/2 top-1/2 h-[55px] w-[55px]  -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-primary-10">
-            <img
-              src={props.urlImage || default_logo_QR}
-              alt="logo"
-              style={{
-                position: "absolute",
-                borderRadius: "50%",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-49%, -49%)",
-                width: 50,
-                height: 50,
-              }}
-            />
-          </div>
+          <img
+            src={props.selectedImage || default_logo_QR}
+            alt="logo"
+            style={{
+              position: "absolute",
+              borderRadius: "50%",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: 50,
+              height: 50,
+            }}
+          />
         </div>
       </div>
       <div className="mt-2 flex flex-col gap-1 border-b border-[#888888]">
         <h4 className="text-[14px] text-[#888888]">URL</h4>
         <input
           class="border-b border-gray-500 text-gray-70"
-          value={props.urlText}
+          value={props.url}
         />
       </div>
       <div className="mt-[10px] flex flex-col gap-2">

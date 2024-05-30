@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import { I18n } from "aws-amplify/utils";
 const Qr = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [urlText, setUrlText] = useState("");
-  const [urlImage, setUrlImage] = useState("");
+  const [url, setUrl] = useState("");
   const [language, setLanguage] = useState("");
   useEffect(() => {
     const lg = localStorage.getItem("language") || "es";
@@ -38,19 +37,13 @@ const Qr = () => {
       <section className="flex justify-between sm:mt-[31px] sm:h-[840px] sm:flex-col sm:gap-10 lg:mt-[45px] lg:h-[400px] lg:w-[732px] lg:flex-row">
         {/**Left */}
         <QrGenerate
-          urlText={urlText}
-          setUrlText={setUrlText}
-          urlImage={urlImage}
-          setUrlImage={setUrlImage}
+          url={url}
+          setUrl={setUrl}
           selectedImage={selectedImage}
           setSelectedImage={setSelectedImage}
         />
         {/**Right */}
-        <QrPrevGenerate
-          urlText={urlText}
-          selectedImage={selectedImage}
-          urlImage={urlImage}
-        />
+        <QrPrevGenerate url={url} selectedImage={selectedImage} />
       </section>
       <footer className="text-[20px] font-light text-white sm:relative sm:mt-10 lg:absolute lg:bottom-10 lg:mt-[200px]">
         {I18n.get("IBrand")}
