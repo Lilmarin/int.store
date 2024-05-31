@@ -24,22 +24,28 @@ const QrPrevGenerate = (props) => {
    * @returns {void}
    */
   const handleDownload = async () => {
-    const data = {
-      text: props.url,
-      centerImage: props.selectedImage,
-    };
-
     try {
-      const response = await axios.post(
+      const formData = new FormData();
+      formData.append("text", props.url);
+
+      // Convert base64 image to Blob
+      const response = await fetch(props.selectedImage);
+      const blob = await response.blob();
+      formData.append("image", blob, "image.png");
+
+      const res = await axios.post(
         "http://localhost:3000/qr/generate-qr",
-        data,
+        formData,
         {
           responseType: "arraybuffer",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         },
       );
 
-      const blob = new Blob([response.data], { type: "image/png" });
-      const url = window.URL.createObjectURL(blob);
+      const blobResponse = new Blob([res.data], { type: "image/png" });
+      const url = window.URL.createObjectURL(blobResponse);
 
       const link = document.createElement("a");
       link.href = url;
@@ -67,19 +73,21 @@ const QrPrevGenerate = (props) => {
             includeMargin={true}
             renderAs="svg"
           />
-          <img
-            src={props.selectedImage || default_logo_QR}
-            alt="logo"
-            style={{
-              position: "absolute",
-              borderRadius: "50%",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: 50,
-              height: 50,
-            }}
-          />
+          <div className="absolute left-1/2 top-1/2 h-[55px] w-[55px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-primary-10">
+            <img
+              src={props.selectedImage || default_logo_QR}
+              alt="logo"
+              style={{
+                position: "absolute",
+                borderRadius: "50%",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-49%, -49%)",
+                width: 50,
+                height: 50,
+              }}
+            />
+          </div>
         </div>
       </div>
       <div className="mt-2 flex flex-col gap-1 border-b border-[#888888]">

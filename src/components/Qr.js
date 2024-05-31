@@ -11,7 +11,6 @@ const Qr = () => {
   const [language, setLanguage] = useState("");
   useEffect(() => {
     const lg = localStorage.getItem("language") || "es";
-    console.log(lg);
     setLanguage(lg);
   }, []);
   return (

@@ -15,13 +15,16 @@ const QrGenerate = (props) => {
     }
   }, [fileImageTemp, urlTemp]);
   const handleImageChange = (event) => {
-    console.log(event);
     const file = event.target.files[0];
     if (file) {
-      const url = URL.createObjectURL(file);
-      setFileImageTemp(url);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFileImageTemp(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
+
   const handleCleanData = () => {
     setFileImageTemp(null);
     setUrlTemp("");
