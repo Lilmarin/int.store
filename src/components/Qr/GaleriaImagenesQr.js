@@ -15,7 +15,7 @@ const GaleriaImagenesQr = (props) => {
   }, []);
   return (
     <div
-      className="relative flex w-full flex-col items-center sm:h-[1100px] sm:pt-[100px] lg:h-screen lg:pt-[250px]"
+      className="relative flex w-full flex-col items-center sm:h-[1100px] sm:pt-[100px] lg:h-screen lg:pt-[10%]"
       style={{ backgroundImage: `url(${background_Purple})` }}
     >
       {/* <section>
