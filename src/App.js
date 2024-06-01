@@ -15,6 +15,7 @@ import { I18n } from "aws-amplify/utils";
 import PageWrapper from "./components/PageWrapper/PageWrapper";
 import Tarjetas from "./components/Tarjetas";
 import Qr from "./components/Qr";
+import GaleriaImagenesQr from "./components/Qr/GaleriaImagenesQr";
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(
@@ -98,6 +99,14 @@ function App() {
           element={
             <PageWrapper selectedOption={selectedOption} handler={handler}>
               <Qr />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="QR/Standby/Galeria"
+          element={
+            <PageWrapper selectedOption={selectedOption} handler={handler}>
+              <GaleriaImagenesQr />
             </PageWrapper>
           }
         />
