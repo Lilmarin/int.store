@@ -73,7 +73,7 @@ const Qr = () => {
 
   return (
     <div
-      className="relative flex w-full flex-col items-center pt-[225px] sm:h-[1100px] lg:h-screen"
+      className="relative flex w-full flex-col items-center pt-[10%] sm:h-[1100px] lg:h-screen"
       style={{ backgroundImage: `url(${background_Purple})` }}
     >
       {/* <section>

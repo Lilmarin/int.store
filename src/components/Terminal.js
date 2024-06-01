@@ -39,7 +39,11 @@ const Terminal = ({ selectedOption }) => {
           </NavLink>
         </Divcenter>
         <div className="Left-Container-2">
-          <img className="img-front-circle" src={Circleint} alt="Int Store" />
+          <img
+            className="h-[552px] w-[552px]"
+            src={Circleint}
+            alt="Int Store"
+          />
         </div>
       </Divcolumns>
       <Divcolumn
