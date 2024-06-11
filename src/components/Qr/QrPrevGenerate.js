@@ -70,10 +70,11 @@ const QrPrevGenerate = (props) => {
           <QRCode
             value={props.url}
             size={189}
-            includeMargin={true}
-            renderAs="svg"
+            includeMargin={false}
+            bgColor="#ffffff"
+            className="z-0"
           />
-          <div className="absolute left-1/2 top-1/2 h-[55px] w-[55px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-primary-10">
+          <div className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-primary-10">
             <img
               src={props.selectedImage || default_logo_QR}
               alt="logo"
@@ -83,8 +84,9 @@ const QrPrevGenerate = (props) => {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-49%, -49%)",
-                width: 50,
-                height: 50,
+                width: 45,
+                height: 45,
+                zIndex: 10,
               }}
             />
           </div>
