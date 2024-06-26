@@ -40,7 +40,7 @@ const Terminal = ({ selectedOption }) => {
         </Divcenter>
         <div className="Left-Container-2">
           <img
-            className="h-[552px] w-[552px]"
+            className="lg:h-[552px] lg:w-[552px]"
             src={Circleint}
             alt="Int Store"
           />

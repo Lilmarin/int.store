@@ -25,7 +25,7 @@ const Index = () => {
             {I18n.get("IWithoutpayment")}
           </H5Home> */}
           <H1Home className="potencializa">{I18n.get("Ipotential")}</H1Home>
-          <H1Home marginf="2vh auto 3vh" fontsize="7.2vh" className="tunegocio">
+          <H1Home marginf="1vh auto 3vh" fontsize="7.2vh" className="tunegocio">
             {I18n.get("IHeadertitle1")}
           </H1Home>
           <H5Home className="text-light">{I18n.get("IHeadertitle2")}</H5Home>
@@ -33,7 +33,7 @@ const Index = () => {
             {" "}
             <Boton
               bwidth="40%"
-              bmarg="1em auto"
+              bmarg="auto"
               peligro
               onClick={() => console.log("Clic en el botón")}
             >

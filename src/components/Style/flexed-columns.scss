@@ -11,15 +11,16 @@
     }
     .potencializa {
       font-size: 3.6vh;
-      line-height: 4vh;
+      line-height: 1vh;
       text-transform: uppercase;
-      margin-top: 4vh;
+      margin-top: 0vh;
       span {
         display: block;
         white-space: nowrap;
         border-right: 4px solid;
         width: 13ch;
-        animation: typing 3.5s infinite steps(12),
+        animation:
+          typing 3.5s infinite steps(12),
           blink 0.8s infinite step-end alternate;
         overflow: hidden;
       }
@@ -68,12 +69,13 @@
     margin: 2em 0 3em;
 
     @media (max-width: 700px) {
-      margin: 2em 0 1em;
+      margin: 1em 0 0em;
     }
     .CONTAINER-CURSOR {
       text-decoration: none;
       .Item-Home {
         width: 100%;
+        height: 100%;
         border-radius: 23px;
         border: 1px solid #fff;
         background: rgba(255, 255, 255, 0.4);
@@ -91,7 +93,7 @@
           }
           img {
             max-width: 100%;
-            @media (max-width:800px) {
+            @media (max-width: 800px) {
               max-height: 132px;
               margin: 0 auto;
             }
@@ -113,7 +115,7 @@
               width: 100%;
               text-decoration: none;
               .btn-links {
-                margin: 0.5em 0 1em 0 !important;
+                margin: 0em 0 0em 0 !important;
               }
             }
           }

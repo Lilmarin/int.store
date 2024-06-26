@@ -47,7 +47,7 @@ const dict = {
     IHeadertitle1: "¡TU NEGOCIO!",
     IHeadertitle2:
       "Habilitalo para la venta en línea y el cobro en ubicaciones físicas sin necesidad de una terminal bancaria",
-    IButton1: "¡Registrate Ahora!",
+    IButton1: "Demo",
     ITerminaltitle: "TERMINAL DIGITAL",
     ISeemore: " Ver más",
     IEcommercetitle: " E-COMMERCE EN SEGUNDOS",
@@ -138,7 +138,7 @@ const dict = {
     IHeadertitle1: "YOUR BUSINESS!",
     IHeadertitle2:
       "Enable your business for online sales and digital payment solutions in physical locations without the need of a banking POS",
-    IButton1: "Sign up now!",
+    IButton1: "Demo",
     ITerminaltitle: "Obtain your digital POS for your physical locations",
     ISeemore: "See more",
     IEcommercetitle: "Start selling online in seconds",
