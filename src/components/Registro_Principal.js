@@ -36,33 +36,39 @@ const RegistroPrincipal = () => {
           <Bottomtext className="btn-text">{I18n.get("IBrand")}</Bottomtext>
         </DivColumnRegister>
         <DivColumnRegister className="registro-right">
-          <PurpleSubtitle>{I18n.get("RPWaitList")}</PurpleSubtitle>
-          <HText2>{I18n.get("RPSingInNow")}</HText2>
-          {loading && (
-            <>
-              <Form />
-            </>
-          )}
-          <iframe
-            hidden={loading}
-            className="Iframe-form"
-            src="https://link.superleads.mx/widget/form/DAdTlMSnybT7uu7FG0nj"
-            id="inline-DAdTlMSnybT7uu7FG0nj"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Lista de espera V1 _Home"
-            data-height="431"
-            data-layout-iframe-id="inline-DAdTlMSnybT7uu7FG0nj"
-            data-form-id="DAdTlMSnybT7uu7FG0nj"
-            title="Lista de espera V1 _Home"
-            onLoad={() => setLoading(false)}
-          ></iframe>
-          <script src="https://link.superleads.mx/js/form_embed.js"></script>
+          <div className="mt-[50px] flex h-full w-full flex-col items-center justify-center">
+            <PurpleSubtitle>{I18n.get("RPWaitList")}</PurpleSubtitle>
+            <HText2>{I18n.get("RPSingInNow")}</HText2>
+            {loading && (
+              <>
+                <Form />
+              </>
+            )}
+            <iframe
+              hidden={loading}
+              className="Iframe-form"
+              style={{
+                width: "80%",
+                height: "100%",
+              }}
+              src="https://link.superleads.mx/widget/form/DAdTlMSnybT7uu7FG0nj"
+              id="inline-DAdTlMSnybT7uu7FG0nj"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Lista de espera V1 _Home"
+              data-height="431"
+              data-layout-iframe-id="inline-DAdTlMSnybT7uu7FG0nj"
+              data-form-id="DAdTlMSnybT7uu7FG0nj"
+              title="Lista de espera V1 _Home"
+              onLoad={() => setLoading(false)}
+            ></iframe>
+            <script src="https://link.superleads.mx/js/form_embed.js"></script>
+          </div>
         </DivColumnRegister>
       </Divcolumns2>
     </div>

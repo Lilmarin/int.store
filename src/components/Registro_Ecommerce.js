@@ -37,33 +37,40 @@ const Registro = () => {
           <Bottomtext className="btn-text">{I18n.get("IBrand")}</Bottomtext>
         </DivColumnRegister>
         <DivColumnRegister className="registro-right">
-          <PurpleSubtitle>{I18n.get("RPWaitList")}</PurpleSubtitle>
-          <HText2>{I18n.get("RPSingInNow")}</HText2>
-          {loading && (
-            <>
-              <Form />
-            </>
-          )}
-          <iframe
-            hidden={loading}
-            className="Iframe-form"
-            src="https://link.superleads.mx/widget/form/JMoPiGk1Vvt9x1EnhPJa"
-            id="inline-JMoPiGk1Vvt9x1EnhPJa"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Lista de espera V2 _Ecommerce"
-            data-height="400"
-            data-layout-iframe-id="inline-JMoPiGk1Vvt9x1EnhPJa"
-            data-form-id="JMoPiGk1Vvt9x1EnhPJa"
-            title="Lista de espera V2 _Ecommerce"
-            onLoad={() => setLoading(false)}
-          ></iframe>
-          <script src="https://link.superleads.mx/js/form_embed.js"></script>
+          <div className="mt-[50px] flex h-full w-full flex-col items-center justify-center">
+            <PurpleSubtitle>{I18n.get("RPWaitList")}</PurpleSubtitle>
+            <HText2>{I18n.get("RPSingInNow")}</HText2>
+            {loading && (
+              <>
+                <Form />
+              </>
+            )}
+            <iframe
+              hidden={loading}
+              className="Iframe-form"
+              style={{
+                width: "80%",
+                height: "100%",
+              }}
+              src="https://link.superleads.mx/widget/form/JMoPiGk1Vvt9x1EnhPJa"
+              id="inline-JMoPiGk1Vvt9x1EnhPJa"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Lista de espera V2 _Ecommerce"
+              data-height="400"
+              data-layout-iframe-id="inline-JMoPiGk1Vvt9x1EnhPJa"
+              data-form-id="JMoPiGk1Vvt9x1EnhPJa"
+              title="Lista de espera V2 _Ecommerce"
+              onLoad={() => setLoading(false)}
+            ></iframe>
+
+            <script src="https://link.superleads.mx/js/form_embed.js"></script>
+          </div>
         </DivColumnRegister>
       </Divcolumns2>
     </div>

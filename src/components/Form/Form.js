@@ -8,52 +8,35 @@ import {
 } from "../StyledComponents";
 const Form = () => {
   return (
-    <FormSqueleton className="squeleton-form">
-      {/*flex col*/}
-      <DivForm margintop="100px" flexdirection="column">
-        <InputContainer>
-          <input type="text" placeholder="Nombre*"></input>
-        </InputContainer>
-      </DivForm>
-      {/*flex col*/}
-      <DivForm flexdirection="column">
-        <InputContainer margintop="33px">
-          <input type="text" placeholder="Correo*"></input>
-        </InputContainer>
-      </DivForm>
-      {/*flex col*/}
-      <DivForm flexdirection="column">
-        <InputContainer margintop="33px">
-          <input type="text" placeholder="Telefono*"></input>
-        </InputContainer>
-      </DivForm>
-      {/*flex col*/}
-      <DivForm flexdirection="column">
-        <InputContainer margintop="33px">
-          <input type="text" placeholder="Ciudad"></input>
-        </InputContainer>
-      </DivForm>
-      {/*flex col*/}
-      <DivForm flexdirection="column">
-        <CheckBoxContainer>
-          <CheckBoxInput type="checkbox"></CheckBoxInput>
-          <p style={{ fontSize: "13px" }}>
-            Acepto el <a style={{ color: "#188bf6" }}>aviso de privacidad</a> de
+    <div className="flex h-[620px] w-full items-center justify-center ">
+      <form className="flex h-[425px] w-[450px] flex-col gap-8">
+        <div className="w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none">
+          <input type="text" placeholder="Nombre*" />
+        </div>
+        <div className="w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none">
+          <input type="text" placeholder="Correo*" />
+        </div>
+        <div className="w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none">
+          <input type="text" placeholder="Telefono*" />
+        </div>
+        <div className="w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none">
+          <input type="text" placeholder="Ciudad" />
+        </div>
+        <div className="flex items-center">
+          <input type="checkbox" className="mr-2" />
+          <p className="text-sm">
+            Acepto el <a className="text-blue-500">aviso de privacidad</a> de
             INT. Al proporcionar mi correo y teléfono, acepto recibir mensajes
             de la empresa.
           </p>
-        </CheckBoxContainer>
-      </DivForm>
-      {/*flex col*/}
-      <div
-        style={{
-          display: "flex",
-          justifyItems: "start",
-        }}
-      >
-        <ButtonSqueleton>Registrarme</ButtonSqueleton>
-      </div>
-    </FormSqueleton>
+        </div>
+        <div>
+          <button className="h-[44px] w-full rounded-full bg-[#565dd1] py-2 text-white ">
+            Registrarme
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 export default Form;

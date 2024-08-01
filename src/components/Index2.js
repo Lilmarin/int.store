@@ -29,13 +29,17 @@ const Index = () => {
             {I18n.get("IHeadertitle1")}
           </H1Home>
           <H5Home className="text-light">{I18n.get("IHeadertitle2")}</H5Home>
-          <NavLink className="enlacebtn2" to="/registro_principal">
+          {/* <NavLink className="enlacebtn2" to="/registro_principal"> */}
+          <NavLink className="enlacebtn2" to="/">
             {" "}
             <Boton
               bwidth="40%"
               bmarg="auto"
               peligro
-              onClick={() => console.log("Clic en el botón")}
+              onClick={() =>
+                (window.location.href =
+                  "https://intportal.vercel.app/tuDominio/terminal/MXN_0")
+              }
             >
               {I18n.get("IButton1")}
             </Boton>
