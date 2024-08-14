@@ -1,6 +1,8 @@
 import { I18n } from "aws-amplify/utils";
 import { useEffect, useRef, useState } from "react";
 import upload from "../../Img/upload.svg";
+import axios from "axios";
+import iconQR from "../../Img/icons/qr_code.svg";
 const QrGenerate = (props) => {
   const [fileImageTemp, setFileImageTemp] = useState(null);
   const [urlTemp, setUrlTemp] = useState("");
@@ -37,6 +39,7 @@ const QrGenerate = (props) => {
   const handleGenerateQR = () => {
     props.setSelectedImage(fileImageTemp);
     props.setUrl(urlTemp);
+    console.log("urlTemp", urlTemp);
   };
   return (
     <section className="h-[400px] w-[240px] rounded-xl bg-white p-6">
@@ -92,6 +95,7 @@ const QrGenerate = (props) => {
           className={`flex h-9 w-full items-center justify-center rounded-[32px] bg-primary-40 text-center text-[14px] font-light text-white hover:bg-primary-50 ${buttonDisabled ? "cursor-not-allowed opacity-50" : ""}`}
         >
           {I18n.get("QrGenerateQr")}
+          <img src={iconQR} alt="QR" className="ml-2" />
         </button>
         <button
           onClick={handleCleanData}

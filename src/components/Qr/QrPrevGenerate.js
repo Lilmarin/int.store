@@ -34,7 +34,7 @@ const QrPrevGenerate = (props) => {
       formData.append("image", blob, "image.png");
 
       const res = await axios.post(
-        "http://localhost:3000/qr/generate-qr",
+        "https://int-backend.vercel.app/qr/generate-qr",
         formData,
         {
           responseType: "arraybuffer",
@@ -54,7 +54,13 @@ const QrPrevGenerate = (props) => {
       link.click();
       document.body.removeChild(link);
     } catch (error) {
+      const language = localStorage.getItem("language");
       console.error("Error generating QR code:", error);
+      if (language === "es") {
+        alert("Error generando el código QR, intente de nuevo");
+        return;
+      }
+      alert("Error generating QR code, try again");
     }
   };
 

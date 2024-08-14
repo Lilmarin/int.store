@@ -5,20 +5,21 @@ import Select from "../Select";
 import { I18n } from "aws-amplify/utils";
 import { NavLink } from "react-router-dom";
 import LogoTipo from "../../Img/Logotipo.png";
-import LogoEspanol from "../../Img/LogoEspanol.png";
+import LogoEspanol from "../../Img/tagEspanol.png";
 // eslint-disable-next-line
 const Header = ({ selectedOption, handler, executeScroll }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const language = localStorage.getItem("language") ?? "en";
+  const language = localStorage.getItem("language") ?? "es";
   const [url, setUrl] = useState("");
   useEffect(() => {
     const path = window.location.pathname;
-    setUrl(path);
-    console.log(url);
+    const lastUrl = path.split("/").pop();
+    setUrl(lastUrl);
+    console.log(lastUrl);
   }, []);
 
   return (
-    <div className={` ${url === "/QR" ? "hidden" : "Header-container"}`}>
+    <div className={` ${url === "Qr" ? "hidden" : "Header-container"}`}>
       <div className="la-select" isOpen={isOpen}>
         <NavLink to="/" className="Nav-left">
           {language === "es" ? (
@@ -26,9 +27,8 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
           ) : (
             <img className="logo" alt="Logotipo Int.Store" src={LogoTipo} />
           )}
-        </NavLink>{" "}
+        </NavLink>
         <div className="Select-item-2">
-          {" "}
           <Select
             className="Select-item"
             selectedOption={selectedOption}

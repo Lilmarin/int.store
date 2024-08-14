@@ -6,6 +6,8 @@ import QrPrevGenerate from "./Qr/QrPrevGenerate";
 import { useEffect, useState, useRef } from "react";
 import { I18n } from "aws-amplify/utils";
 import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
+import logoEspanol from "./../Img/tagEspanol.png";
+import logoIngles from "./../Img/Logotipo.png";
 
 const Qr = () => {
   const [show, setShow] = useState(true);
@@ -73,24 +75,24 @@ const Qr = () => {
 
   return (
     <div
-      className="relative flex w-full flex-col items-center pt-[10%] sm:h-[1100px] lg:h-screen"
+      className="relative flex w-full flex-col items-center pt-[1%] sm:h-[1100px] lg:h-screen"
       style={{ backgroundImage: `url(${background_Purple})` }}
     >
-      {/* <section>
+      <section>
         {language === "es" ? (
           <img
             src={logoEspañol}
             alt="Logotipo Español"
-            className="sm:mt-[21px] sm:h-[76px] sm:w-[268px] lg:mt-[48px] lg:h-[152px] lg:w-[533px]"
+            className=" sm:h-[76px] sm:w-[268px] lg:h-[152px] lg:w-[533px]"
           ></img>
         ) : (
           <img
             src={logoingles}
             alt="Logotipo Español"
-            className="sm:mt-[21px] sm:h-[76px] sm:w-[268px] lg:mt-[48px] lg:h-[152px] lg:w-[533px]"
+            className=" sm:h-[76px] sm:w-[268px] lg:h-[152px] lg:w-[533px]"
           ></img>
         )}
-      </section> */}
+      </section>
       <section className="flex justify-between sm:mt-[31px] sm:h-[840px] sm:flex-col sm:gap-10 lg:mt-[45px] lg:h-[400px] lg:w-[732px] lg:flex-row">
         {/**Left */}
         <QrGenerate
@@ -102,6 +104,12 @@ const Qr = () => {
         {/**Right */}
         <QrPrevGenerate url={url} selectedImage={selectedImage} />
       </section>
+      <button
+        onClick={() => navigate("/QR/Standby/Galeria")} // Change to your desired route
+        className="mt-12 h-[48px] w-[250px] rounded-[32px] bg-white text-primary-50 hover:bg-gray-30"
+      >
+        Casos de uso
+      </button>
       <footer className="text-[20px] font-light text-white sm:relative sm:mt-10 lg:absolute lg:bottom-10 lg:mt-[200px]">
         {I18n.get("IBrand")}
       </footer>
