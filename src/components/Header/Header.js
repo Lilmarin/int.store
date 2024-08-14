@@ -11,6 +11,7 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
   const [isOpen, setIsOpen] = useState(false);
   const language = localStorage.getItem("language") ?? "es";
   const [url, setUrl] = useState("");
+
   useEffect(() => {
     const path = window.location.pathname;
     const lastUrl = path.split("/").pop();
@@ -20,7 +21,7 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
 
   return (
     <div className={` ${url === "Qr" ? "hidden" : "Header-container"}`}>
-      <div className="la-select" isOpen={isOpen}>
+      <div className="la-select">
         <NavLink to="/" className="Nav-left">
           {language === "es" ? (
             <img className="logo" alt="Logotipo Español" src={LogoEspanol} />
