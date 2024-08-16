@@ -9,6 +9,7 @@ import axios from "axios";
 
 const QrPrevGenerate = (props) => {
   const [buttonDisabled, setButtonDisabled] = useState(true); // [1
+  const [dowloadQR, setDowloadQR] = useState(false);
   useEffect(() => {
     if (props.url && props.selectedImage) {
       setButtonDisabled(false);
@@ -25,6 +26,7 @@ const QrPrevGenerate = (props) => {
    */
   const handleDownload = async () => {
     try {
+      setDowloadQR(true);
       const formData = new FormData();
       formData.append("text", props.url);
 
@@ -35,6 +37,7 @@ const QrPrevGenerate = (props) => {
 
       const res = await axios.post(
         "https://int-backend.vercel.app/qr/generate-qr",
+        //"http://localhost:3000/qr/generate-qr",
         formData,
         {
           responseType: "arraybuffer",
@@ -53,14 +56,16 @@ const QrPrevGenerate = (props) => {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      setDowloadQR(false);
     } catch (error) {
       const language = localStorage.getItem("language");
       console.error("Error generating QR code:", error);
       if (language === "es") {
-        alert("Error generando el código QR, intente de nuevo");
+        alert("Error generando el código QR, intente con otra imagen");
         return;
       }
-      alert("Error generating QR code, try again");
+      alert("Error generating QR code, try with another image");
+      setDowloadQR(false);
     }
   };
 
@@ -120,7 +125,7 @@ const QrPrevGenerate = (props) => {
           disabled={buttonDisabled}
         >
           <img src={dowload} alt="download" className="mr-2" />
-          {I18n.get("QrDownload")}
+          {dowloadQR ? I18n.get("QrWait") : I18n.get("QrDownload")}
         </button>
       </div>
     </section>

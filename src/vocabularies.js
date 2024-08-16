@@ -91,6 +91,7 @@ const dict = {
     QrCopy: "Copiar URL",
     QrClean: "Limpiar",
     QrUrlImage: "URL Imagen",
+    QrWait: "Espere un momento",
   },
   en: {
     //Traducciones de terminal
@@ -177,6 +178,7 @@ const dict = {
     QrCopy: "Copy URL",
     QrClean: "Clean",
     QrUrlImage: "URL Image",
+    QrWait: "Wait a moment",
   },
 };
 export default dict;
