@@ -1,0 +1,14 @@
+.zoom-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 300px; /* O el tamaño que desees */
+}
+
+.zoom-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  cursor: grab;
+}

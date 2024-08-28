@@ -13,6 +13,7 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
   const [url, setUrl] = useState("");
 
   useEffect(() => {
+    localStorage.setItem("language", "es");
     const path = window.location.pathname;
     const lastUrl = path.split("/").pop();
     setUrl(lastUrl);
