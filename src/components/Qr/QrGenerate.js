@@ -104,13 +104,14 @@ const QrGenerate = (props) => {
       </div>
       <div className="mt-2 flex flex-col gap-2 border-b border-[#888888]">
         <h4 className="text-[14px] text-[#888888]">URL</h4>
-        <input
-          className="border-b border-gray-500 text-gray-70"
+        <textarea
+          className="resize-none border-b border-gray-500 text-gray-70 focus:outline-none"
           onChange={(e) => setUrlTemp(e.target.value)}
           value={urlTemp}
+          rows={3}
         />
       </div>
-      <div className="mt-[85px] flex flex-col gap-2">
+      <div className="mt-[30px] flex flex-col gap-2">
         <button
           onClick={handleGenerateQR}
           className={`flex h-9 w-full items-center justify-center rounded-[32px] bg-primary-40 text-center text-[14px] font-light text-white hover:bg-primary-50 ${buttonDisabled ? "cursor-not-allowed opacity-50" : ""}`}

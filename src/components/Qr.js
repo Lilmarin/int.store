@@ -99,7 +99,7 @@ const Qr = () => {
         <h1 className="font-bold text-white sm:hidden md:flex md:text-[40px] lg:text-[50px]">
           Generador de QR
         </h1>
-        <section className="flex justify-between sm:mt-[31px] sm:h-[840px] sm:flex-col sm:gap-10 lg:mt-[45px] lg:h-[400px] lg:w-[732px] lg:flex-row">
+        <section className="flex justify-between sm:mt-[31px] sm:h-[840px] sm:flex-col sm:gap-10 lg:mt-[10px] lg:h-[400px] lg:w-[732px] lg:flex-row">
           {/**Left */}
           <QrGenerate
             url={url}
@@ -114,7 +114,7 @@ const Qr = () => {
         </section>
         <button
           onClick={() => navigate("/QR/Standby/Galeria")} // Change to your desired route
-          className="mt-10 h-[48px] w-[250px] rounded-[32px] bg-white text-primary-50 hover:bg-gray-30"
+          className="mt-[20px] h-[48px] w-[250px] rounded-[32px] bg-white text-primary-50 hover:bg-gray-30"
         >
           Casos de uso
         </button>
