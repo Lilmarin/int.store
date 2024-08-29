@@ -92,6 +92,9 @@ const dict = {
     QrClean: "Limpiar",
     QrUrlImage: "URL Imagen",
     QrWait: "Espere un momento",
+    Acept: "Aceptar",
+    Cancel: "Cancelar",
+    AjustImage: "Ajusta la imagen de tu QR",
   },
   en: {
     //Traducciones de terminal
@@ -179,6 +182,9 @@ const dict = {
     QrClean: "Clean",
     QrUrlImage: "URL Image",
     QrWait: "Wait a moment",
+    Acept: "Accept",
+    Cancel: "Cancel",
+    AjustImage: "Adjust your QR image",
   },
 };
 export default dict;

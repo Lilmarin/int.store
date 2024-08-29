@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
+import { I18n } from "aws-amplify/utils";
 
 const ModalModifyQr = (props) => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
-  const [circlePosition, setCirclePosition] = useState({ x: 60, y: 60 });
+  const [circlePosition, setCirclePosition] = useState({ x: 55, y: 60 });
   const [circleSize, setCircleSize] = useState(200); // Tamaño del círculo
   const [dragging, setDragging] = useState(false);
   const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
@@ -140,9 +141,7 @@ const ModalModifyQr = (props) => {
     <div className="fixed flex h-full w-full flex-col items-center justify-center">
       <div className="relative flex h-[490px] w-[350px] flex-col gap-2 overflow-hidden rounded-lg border bg-[#EBEBEB] px-5 shadow-md">
         <section className="flex h-[40px] items-center justify-center">
-          <p className="pt-1 text-[20px] font-bold">
-            Ajusta la imagen de tu QR
-          </p>
+          <p className="pt-1 text-[20px] font-bold">{I18n.get("AjustImage")}</p>
         </section>
         <section
           className="relative h-[325px] w-full border"
@@ -175,13 +174,13 @@ const ModalModifyQr = (props) => {
           className="h-[44px] rounded-[32px] bg-[#585DCC] text-white hover:bg-[#2A2FAB]"
           onClick={handleAccept}
         >
-          Aceptar
+          {I18n.get("Acept")}
         </button>
         <button
           className="h-[40px] rounded-[32px] bg-[#585DCC] text-white hover:bg-[#2A2FAB]"
           onClick={props.onClose}
         >
-          Cerrar
+          {I18n.get("Cancel")}
         </button>
       </div>
     </div>
