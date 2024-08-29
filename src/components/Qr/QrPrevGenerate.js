@@ -52,7 +52,7 @@ const QrPrevGenerate = (props) => {
 
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "qr-code.png");
+      link.setAttribute("download", "Terminal-int.png");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -121,7 +121,7 @@ const QrPrevGenerate = (props) => {
         </button>
         <button
           onClick={handleDownload}
-          className={`flex h-9 w-full items-center justify-center rounded-[32px] bg-white text-center text-[14px] font-light text-primary-40 shadow-sm hover:bg-gray-10 ${buttonDisabled ? "opacity-50" : ""}`}
+          className={`flex h-9 w-full items-center justify-center rounded-[32px] bg-white text-center text-[14px] font-light text-primary-40 shadow-md hover:bg-gray-10 ${buttonDisabled ? "opacity-50" : ""}`}
           disabled={buttonDisabled}
         >
           <img src={dowload} alt="download" className="mr-2" />
