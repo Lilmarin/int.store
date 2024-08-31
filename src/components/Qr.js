@@ -138,7 +138,7 @@ const Qr = () => {
             WidthMax="400px"
             HeightMax="540px"
             WidthMin="90%"
-            HeightMin="520px"
+            HeightMin="550px"
           />
         )}
       </div>

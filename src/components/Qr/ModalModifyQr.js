@@ -9,6 +9,7 @@ const ModalModifyQr = (props) => {
   const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1); // Estado para el zoom
+  const [imgRes, setImgRes] = useState(null);
 
   const handlePointerDown = (e) => {
     setDragging(true);
@@ -139,6 +140,14 @@ const ModalModifyQr = (props) => {
             style={{
               transform: `scale(${zoom}) translate(${imagePosition.x}px, ${imagePosition.y}px)`,
               transformOrigin: "0 0",
+              userSelect: "none", // Evita la selección de la imagen en la mayoría de los navegadores
+              touchAction: "none", // Deshabilita los gestos táctiles predeterminados
+              WebkitUserDrag: "none", // Desactiva el arrastre en navegadores WebKit
+              cursor: "default", // Cambia el cursor al estado por defecto
+              WebkitUserSelect: "none", // Específico para Safari para evitar la selección
+              WebkitTouchCallout: "none", // Evita el menú contextual en Safari
+              WebkitTapHighlightColor: "rgba(0,0,0,0)", // Elimina el resaltado al tocar en Safari
+              pointerEvents: "auto", // Permite que la imagen reciba eventos, pero sin selección
             }}
             className="absolute"
           />
