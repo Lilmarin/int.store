@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom"; // Use useNavigate instead of us
 import logoEspanol from "./../Img/tagEspanol.png";
 import logoIngles from "./../Img/Logotipo.png";
 import ModalModifyQr from "./Qr/ModalModifyQr";
+import ModalMui from "./Modal/ModalMui";
 
 const Qr = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -122,11 +123,22 @@ const Qr = () => {
           {I18n.get("IBrand")}
         </footer>
         {openModal && (
-          <ModalModifyQr
-            url={url}
-            selectedImage={selectedImage}
-            setSelectedImage={setSelectedImage}
-            onClose={() => setOpenModal(false)}
+          <ModalMui
+            view={
+              <ModalModifyQr
+                url={url}
+                selectedImage={selectedImage}
+                setSelectedImage={setSelectedImage}
+                onClose={() => setOpenModal(false)}
+              />
+            }
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+            closeButton={false}
+            WidthMax="400px"
+            HeightMax="540px"
+            WidthMin="90%"
+            HeightMin="520px"
           />
         )}
       </div>

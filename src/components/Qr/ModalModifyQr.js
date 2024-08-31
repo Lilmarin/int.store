@@ -4,74 +4,48 @@ import { I18n } from "aws-amplify/utils";
 const ModalModifyQr = (props) => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
-  const [circlePosition, setCirclePosition] = useState({ x: 55, y: 60 });
   const [circleSize, setCircleSize] = useState(200); // Tamaño del círculo
   const [dragging, setDragging] = useState(false);
   const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
+  const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1); // Estado para el zoom
 
-  const handleMouseDown = (e) => {
+  const handlePointerDown = (e) => {
     setDragging(true);
     setStartPosition({
-      x: e.clientX - circlePosition.x,
-      y: e.clientY - circlePosition.y,
+      x: e.clientX - imagePosition.x,
+      y: e.clientY - imagePosition.y,
     });
   };
 
-  const handleMouseMove = (e) => {
+  const handlePointerMove = (e) => {
     if (!dragging) return;
-
-    const container = containerRef.current;
-    if (!container) return;
-
-    const containerRect = container.getBoundingClientRect();
 
     let newX = e.clientX - startPosition.x;
     let newY = e.clientY - startPosition.y;
 
-    // Limitar el movimiento dentro del contenedor
-    const maxX = containerRect.width - circleSize;
-    const maxY = containerRect.height - circleSize;
-
-    newX = Math.min(Math.max(newX, 0), maxX);
-    newY = Math.min(Math.max(newY, 0), maxY);
-
-    setCirclePosition({ x: newX, y: newY });
+    // Actualiza la posición de la imagen sin restricciones
+    setImagePosition({ x: newX, y: newY });
   };
 
-  const handleMouseUp = () => {
+  const handlePointerUp = () => {
     setDragging(false);
-  };
-
-  const adjustCirclePosition = (newSize) => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const containerRect = container.getBoundingClientRect();
-
-    let newX = circlePosition.x;
-    let newY = circlePosition.y;
-
-    // Asegurarse de que el círculo se mantenga dentro del contenedor
-    const maxX = containerRect.width - newSize;
-    const maxY = containerRect.height - newSize;
-
-    if (newX > maxX) newX = maxX;
-    if (newY > maxY) newY = maxY;
-
-    if (newX < 0) newX = 0;
-    if (newY < 0) newY = 0;
-
-    setCirclePosition({ x: newX, y: newY });
   };
 
   const handleSizeChange = (change) => {
     setCircleSize((size) => {
       const newSize = size + change;
-      if (newSize >= 200 && newSize <= 310) {
-        adjustCirclePosition(newSize);
+      if (newSize >= 100 && newSize <= 300) {
         return newSize;
       }
       return size;
+    });
+  };
+
+  const handleZoomChange = (change) => {
+    setZoom((prevZoom) => {
+      const newZoom = Math.max(0.5, prevZoom + change); // Ajusta el zoom entre 0.5 y 5
+      return newZoom;
     });
   };
 
@@ -82,107 +56,119 @@ const ModalModifyQr = (props) => {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
-    // Tamaño del círculo desde el estado
     const diameter = circleSize;
     const radius = diameter / 2;
 
-    // Tamaño del contenedor
     const containerRect = container.getBoundingClientRect();
     const containerWidth = containerRect.width;
     const containerHeight = containerRect.height;
 
-    // Tamaño de la imagen
-    const imageWidth = image.naturalWidth;
-    const imageHeight = image.naturalHeight;
+    const imageWidth = image.naturalWidth * zoom;
+    const imageHeight = image.naturalHeight * zoom;
 
-    // Escalar el tamaño del círculo a la imagen
-    const scale = imageWidth / containerWidth;
-    const scaledDiameter = diameter * scale;
-    const scaledRadius = scaledDiameter / 2;
+    const scaleX = imageWidth / containerWidth;
+    const scaleY = imageHeight / containerHeight;
 
-    // Posición del círculo en la imagen
-    const x = circlePosition.x * scale + scaledRadius;
-    const y = circlePosition.y * scale + scaledRadius;
+    // Coordenadas del centro del círculo en el contenedor
+    const circleCenterX = containerWidth / 2;
+    const circleCenterY = containerHeight / 2;
 
-    // Recortar la imagen
-    canvas.width = scaledDiameter;
-    canvas.height = scaledDiameter;
+    // Coordenadas del círculo en la imagen escalada
+    const imageCircleX = (circleCenterX - imagePosition.x) * scaleX;
+    const imageCircleY = (circleCenterY - imagePosition.y) * scaleY;
+
+    // Ajustamos el tamaño del canvas al tamaño del círculo escalado
+    canvas.width = diameter;
+    canvas.height = diameter;
+
     ctx.drawImage(
       image,
-      x - scaledRadius,
-      y - scaledRadius,
-      scaledDiameter,
-      scaledDiameter,
+      imageCircleX - radius * scaleX, // Posición X ajustada en la imagen
+      imageCircleY - radius * scaleY, // Posición Y ajustada en la imagen
+      diameter * scaleX, // Ancho del área recortada
+      diameter * scaleY, // Alto del área recortada
       0,
       0,
-      scaledDiameter,
-      scaledDiameter,
+      diameter,
+      diameter,
     );
 
-    // Convertir la imagen a base64
     const dataUrl = canvas.toDataURL("image/png");
-
-    // Enviar la imagen a la función que la necesita
     props.setSelectedImage(dataUrl);
-    props.onClose(); // Cierra el modal si tienes una función para ello
+    props.onClose();
   };
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("pointerup", handlePointerUp);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerup", handlePointerUp);
     };
   }, [dragging]);
 
   return (
-    <div className="fixed flex h-full w-full flex-col items-center justify-center">
-      <div className="relative flex h-[490px] w-[350px] flex-col gap-2 overflow-hidden rounded-lg border bg-[#EBEBEB] px-5 shadow-md">
-        <section className="flex h-[40px] items-center justify-center">
-          <p className="pt-1 text-[20px] font-bold">{I18n.get("AjustImage")}</p>
-        </section>
-        <section
-          className="relative h-[325px] w-full border"
+    <div className="relative flex h-full w-full flex-col gap-2 overflow-hidden rounded-lg px-5">
+      <section className="flex h-[40px] items-center justify-center">
+        <p className="pt-1 text-[20px] font-bold">{I18n.get("AjustImage")}</p>
+      </section>
+      <section className="flex flex-row gap-2">
+        <button
+          onClick={() => handleSizeChange(10)}
+          className="w-[100px] rounded-[32px] bg-primary-40 text-[14px] text-white hover:bg-primary-50"
+        >
+          Circulo +
+        </button>
+        <button
+          onClick={() => handleSizeChange(-10)}
+          className="w-[100px] rounded-[32px] bg-primary-40 text-[14px] text-white hover:bg-primary-50"
+        >
+          Circulo -
+        </button>
+      </section>
+      <section className="relative flex h-[325px] w-full items-center overflow-auto border">
+        <div
+          className="relative h-full w-full overflow-auto"
           ref={containerRef}
         >
           <img
             src={props.selectedImage}
             alt="QR"
             ref={imageRef}
-            className="h-full w-full "
+            style={{
+              transform: `scale(${zoom}) translate(${imagePosition.x}px, ${imagePosition.y}px)`,
+              transformOrigin: "0 0",
+            }}
+            className="absolute"
           />
           <div
             className="absolute cursor-pointer rounded-full border-2 border-white"
             style={{
               width: circleSize,
               height: circleSize,
-              top: circlePosition.y,
-              left: circlePosition.x,
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
               backgroundColor: "rgba(0, 0, 0, 0.3)",
               borderRadius: "50%",
             }}
-            onMouseDown={handleMouseDown}
+            onPointerDown={handlePointerDown} // Inicia el arrastre cuando se hace clic en el círculo
           ></div>
-        </section>
-        <div className="absolute right-1 top-40 flex flex-col gap-2 text-[24px] text-black">
-          <button onClick={() => handleSizeChange(10)}>+</button>
-          <button onClick={() => handleSizeChange(-10)}>-</button>
         </div>
-        <button
-          className="h-[44px] rounded-[32px] bg-[#585DCC] text-white hover:bg-[#2A2FAB]"
-          onClick={handleAccept}
-        >
-          {I18n.get("Acept")}
-        </button>
-        <button
-          className="h-[40px] rounded-[32px] bg-[#585DCC] text-white hover:bg-[#2A2FAB]"
-          onClick={props.onClose}
-        >
-          {I18n.get("Cancel")}
-        </button>
-      </div>
+      </section>
+      <button
+        className="h-[44px] rounded-[32px] bg-[#585DCC] text-white hover:bg-[#2A2FAB]"
+        onClick={handleAccept}
+      >
+        {I18n.get("Acept")}
+      </button>
+      <button
+        className="mb-1 h-[40px] rounded-[32px] bg-white text-black shadow-md hover:bg-gray-20"
+        onClick={props.onClose}
+      >
+        {I18n.get("Cancel")}
+      </button>
     </div>
   );
 };
