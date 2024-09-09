@@ -21,9 +21,7 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
   }, []);
 
   return (
-    <div
-      className={` ${url === "Qr" ? "hidden" : "Header-container" || url === "QR" ? "hidden" : "Header-container" || url === "qr" ? "hidden" : "Header-container"}`}
-    >
+    <div className="Header-container">
       <div className="la-select">
         <NavLink to="/" className="Nav-left">
           {language === "es" ? (

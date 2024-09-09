@@ -79,10 +79,10 @@ const Qr = () => {
   return (
     <>
       <div
-        className="relative flex w-full flex-col items-center pt-[1%] sm:h-[1100px] lg:h-screen"
+        className="relative flex w-full flex-col items-center sm:h-[1500px] sm:pt-[30%] lg:h-screen lg:pt-[8%]"
         style={{ backgroundImage: `url(${background_Purple})` }}
       >
-        <section>
+        <section className="sm:hidden">
           {language === "es" ? (
             <img
               src={logoEspañol}
@@ -100,7 +100,7 @@ const Qr = () => {
         <h1 className="font-bold text-white sm:hidden md:flex md:text-[40px] lg:text-[50px]">
           Generador de QR
         </h1>
-        <section className="flex justify-between sm:mt-[31px] sm:h-[840px] sm:flex-col sm:gap-10 lg:mt-[10px] lg:h-[400px] lg:w-[732px] lg:flex-row">
+        <section className="flex justify-between sm:mt-[31px] sm:h-[840px] sm:flex-col sm:gap-[250px] lg:mt-[10px] lg:h-[400px] lg:w-[732px] lg:flex-row">
           {/**Left */}
           <QrGenerate
             url={url}
@@ -115,13 +115,14 @@ const Qr = () => {
         </section>
         <button
           onClick={() => navigate("/QR/Standby/Galeria")} // Change to your desired route
-          className="mt-[20px] h-[48px] w-[250px] rounded-[32px] bg-white text-primary-50 hover:bg-gray-30"
+          className="absolute bottom-32 h-[48px] w-[250px] rounded-[32px] bg-white text-primary-50 hover:bg-gray-30 lg:mt-[20px]"
         >
           Casos de uso
         </button>
-        <footer className="text-[20px] font-light text-white sm:relative sm:mt-10 lg:absolute lg:bottom-1 lg:mt-[200px]">
+        <footer className="absolute bottom-1 text-[20px] font-light text-white sm:mt-10 lg:mt-[200px]">
           {I18n.get("IBrand")}
         </footer>
+
         {openModal && (
           <ModalMui
             view={

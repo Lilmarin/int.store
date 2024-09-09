@@ -161,6 +161,8 @@ const ModalModifyQr = (props) => {
               transform: "translate(-50%, -50%)",
               backgroundColor: "rgba(0, 0, 0, 0.3)",
               borderRadius: "50%",
+              userSelect: "none", // Evita la selección de texto
+              outline: "none", // Elimina el borde de enfoque
             }}
             onPointerDown={handlePointerDown} // Inicia el arrastre cuando se hace clic en el círculo
           ></div>

@@ -6,6 +6,7 @@ import dowload from "../../Img/download.svg";
 import content_copy from "../../Img/content_copy.svg";
 import default_logo_QR from "../../Img/logo192.png";
 import axios from "axios";
+import { IOSSwitch } from "../Switch/SwitchMui";
 
 const QrPrevGenerate = (props) => {
   const [buttonDisabled, setButtonDisabled] = useState(true); // [1
@@ -70,18 +71,22 @@ const QrPrevGenerate = (props) => {
   };
 
   return (
-    <section className="h-[400px] w-[240px] rounded-xl bg-white px-4 py-3">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-center text-[18px] font-bold text-primary-50">
+    <section className="h-[408px] w-[240px] rounded-xl bg-white px-4 py-1">
+      <div className="flex flex-col">
+        <section className="flex flex-row items-center justify-between px-8 text-primary-60 opacity-40">
+          <p>Blanco</p>
+          <IOSSwitch disabled={true} />
+          <p>Negro</p>
+        </section>
+        <h1 className="h-full text-center text-[18px] font-bold text-primary-50">
           {I18n.get("QrShare")}
         </h1>
       </div>
-      <div className="ml-[10px] mt-2 flex items-center justify-normal">
+      <div className="ml-[10px] mt-1 flex items-center justify-normal">
         <div style={{ position: "relative" }}>
           <QRCode
             value={props.url}
             size={189}
-            includeMargin={false}
             bgColor="#ffffff"
             className="z-0"
           />
@@ -103,14 +108,29 @@ const QrPrevGenerate = (props) => {
           </div>
         </div>
       </div>
-      <div className="mt-2 flex flex-col gap-1 border-b border-[#888888]">
+      <div className="mt-1 flex flex-col  border-b border-[#888888]">
         <h4 className="text-[14px] text-[#888888]">URL</h4>
         <input
-          class="border-b border-gray-500 text-gray-70"
+          className="border-b border-gray-500 text-gray-70"
           value={props.url}
+          onChange={() => {}}
         />
       </div>
-      <div className="mt-[10px] flex flex-col gap-2">
+      <section className="mt-1 flex flex-row items-center justify-between px-2 opacity-30">
+        <div className="flex flex-row">
+          <input type="checkbox" className="mr-2" disabled={true} />
+          <p className="text-[14px]">PNG</p>
+        </div>
+        <div className="flex flex-row">
+          <input type="checkbox" className="mr-2" disabled={true} />
+          <p className="text-[14px]">SVG</p>
+        </div>
+        <div className="flex flex-row">
+          <input type="checkbox" className="mr-2" disabled={true} />
+          <p className="text-[14px]">PDF</p>
+        </div>
+      </section>
+      <div className="mt-1 flex flex-col gap-1">
         <button
           onClick={handleCopy}
           className={`flex h-9 w-full items-center justify-center rounded-[32px] bg-primary-40 text-center text-[14px] font-light text-white hover:bg-primary-50 ${buttonDisabled ? "opacity-50" : ""}`}
