@@ -11,6 +11,7 @@ import { IOSSwitch } from "../Switch/SwitchMui";
 const QrPrevGenerate = (props) => {
   const [buttonDisabled, setButtonDisabled] = useState(true); // [1
   const [dowloadQR, setDowloadQR] = useState(false);
+  useEffect(() => {}, []);
   useEffect(() => {
     if (props.url && props.selectedImage) {
       setButtonDisabled(false);
@@ -71,7 +72,7 @@ const QrPrevGenerate = (props) => {
   };
 
   return (
-    <section className="h-[408px] w-[240px] rounded-xl bg-white px-4 py-1">
+    <section className="h-[410px] w-[240px] rounded-xl bg-white px-4 py-1">
       <div className="flex flex-col">
         <section className="flex flex-row items-center justify-between px-8 text-primary-60 opacity-40">
           <p>Blanco</p>
@@ -85,7 +86,7 @@ const QrPrevGenerate = (props) => {
       <div className="ml-[10px] mt-1 flex items-center justify-normal">
         <div style={{ position: "relative" }}>
           <QRCode
-            value={props.url}
+            value={props.url ? props.url : "https://int.store"}
             size={189}
             bgColor="#ffffff"
             className="z-0"

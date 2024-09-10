@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../components/Style/Home2.scss";
 import "../components/Style/flexed-columns.scss";
 import {
@@ -15,8 +15,12 @@ import Terminal from "../Img/Elipse_1.png";
 import Ecomerce from "../Img/Elipse_2.png";
 import { I18n } from "aws-amplify/utils";
 import { NavLink } from "react-router-dom";
+import { scriptGoogle } from "../lib/utils/scriptGoogle.js";
 
 const Index = () => {
+  useEffect(() => {
+    scriptGoogle();
+  }, []);
   return (
     <Homecomponent className="home-component home-component-modified homeindex">
       <Divcolumns gap="0%" columns="100%" columnsmobile="repeat(1,1fr)">

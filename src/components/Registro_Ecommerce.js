@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../components/Style/Registro.scss";
 import {
   Bottomtext,
@@ -12,9 +12,13 @@ import {
 import Logoint from "./../Img/IconInt.png";
 import { I18n } from "aws-amplify/utils";
 import Form from "./Form/Form";
+import { scriptGoogle } from "../lib/utils/scriptGoogle";
 
 const Registro = () => {
   const [loading, setLoading] = React.useState(true);
+  useEffect(() => {
+    scriptGoogle();
+  }, []);
   // Renderizar la salida del componente
   return (
     <div className="registro-component">

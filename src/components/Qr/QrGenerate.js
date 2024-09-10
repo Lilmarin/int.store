@@ -62,7 +62,7 @@ const QrGenerate = (props) => {
     console.log("urlTemp", urlTemp);
   };
   return (
-    <section className="h-[408px] w-[240px] rounded-xl bg-white p-6">
+    <section className="h-[410px] w-[240px] rounded-xl bg-white p-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-[18px] font-bold text-gray-90">
           {I18n.get("QrGenerate")}

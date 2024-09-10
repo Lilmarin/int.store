@@ -10,6 +10,7 @@ import logoEspanol from "./../Img/tagEspanol.png";
 import logoIngles from "./../Img/Logotipo.png";
 import ModalModifyQr from "./Qr/ModalModifyQr";
 import ModalMui from "./Modal/ModalMui";
+import { scriptGoogle } from "../lib/utils/scriptGoogle";
 
 const Qr = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -21,6 +22,10 @@ const Qr = () => {
   const navigate = useNavigate(); // Use useNavigate instead of useHistory
   const timer = useRef(null); // Ref to store the timer ID
   const interval = useRef(null); // Ref to store the interval ID
+
+  useEffect(() => {
+    scriptGoogle();
+  }, []);
 
   useEffect(() => {
     const lg = localStorage.getItem("language") || "es";
@@ -79,7 +84,7 @@ const Qr = () => {
   return (
     <>
       <div
-        className="relative flex w-full flex-col items-center sm:h-[1500px] sm:pt-[30%] lg:h-screen lg:pt-[8%]"
+        className="relative flex w-full flex-col items-center sm:h-[1300px] sm:pt-[30%] lg:h-screen lg:pt-[8%]"
         style={{ backgroundImage: `url(${background_Purple})` }}
       >
         <section className="sm:hidden">
@@ -113,13 +118,13 @@ const Qr = () => {
           {/**Right */}
           <QrPrevGenerate url={url} selectedImage={selectedImage} />
         </section>
-        <button
+        {/* <button
           onClick={() => navigate("/QR/Standby/Galeria")} // Change to your desired route
           className="absolute bottom-32 h-[48px] w-[250px] rounded-[32px] bg-white text-primary-50 hover:bg-gray-30 lg:mt-[20px]"
         >
           Casos de uso
-        </button>
-        <footer className="absolute bottom-1 text-[20px] font-light text-white sm:mt-10 lg:mt-[200px]">
+        </button> */}
+        <footer className="absolute bottom-1 text-[16px] font-light text-white sm:mt-10 lg:mt-[200px]">
           {I18n.get("IBrand")}
         </footer>
 

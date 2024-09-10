@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../components/Style/Home.scss";
 import {
   Boton,
@@ -19,8 +19,12 @@ import {
 import Circleint from "../Img/Circle_Int.png";
 import { I18n } from "aws-amplify/utils";
 import { NavLink } from "react-router-dom";
+import { scriptGoogle } from "../lib/utils/scriptGoogle.js";
 
 const Terminal = ({ selectedOption }) => {
+  useEffect(() => {
+    scriptGoogle();
+  }, []);
   return (
     <Homecomponent className="home-component">
       <Divcolumns

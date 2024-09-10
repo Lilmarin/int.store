@@ -8,11 +8,14 @@ import QrFlores1 from "./../../Img/QRFlower1.webp";
 import QrFlores2 from "./../../Img/QRFlower2.webp";
 import { I18n } from "aws-amplify/utils";
 import { NavLink, Route } from "react-router-dom";
+import { scriptGoogle } from "../../lib/utils/scriptGoogle";
+
 const GaleriaImagenesQr = (props) => {
   const [language, setLanguage] = useState("");
   useEffect(() => {
     const lg = localStorage.getItem("language") || "es";
     setLanguage(lg);
+    scriptGoogle();
   }, []);
   return (
     <div

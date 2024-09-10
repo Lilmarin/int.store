@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../components/Style/Home.scss";
 import {
   Boton,
@@ -20,8 +20,12 @@ import Imagentelefono from "../Img/Phone_Without_Vector.png";
 import Vectorint from "../Img/Vector_Int_White.png";
 import { I18n } from "aws-amplify/utils";
 import { NavLink } from "react-router-dom";
+import { scriptGoogle } from "../lib/utils/scriptGoogle.js";
 
 const Home = () => {
+  useEffect(() => {
+    scriptGoogle();
+  }, []);
   return (
     <Homecomponent className="home-component">
       <Divcolumns columns="repeat(2, 1fr)" columnsmobile="repeat(1,1fr)">
