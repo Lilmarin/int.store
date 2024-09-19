@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../components/Style/Error404.scss";
-import { I18n } from "aws-amplify/utils";
 import Imagentelefono from "../Img//Phone_Without_Vector.png";
 import Circleint from "../Img/Circle_Int.png";
 import PhoneTerminal from "../Img/PhoneTerminal.png";
-import chevron from "../Img/chevron-right.svg";
-import Carrusel from "./Error404/Carrusel.js";
-import background from "../Img/Backkground_Purple.png";
-import { NavLink } from "react-router-dom";
 
 const Error404 = () => {
   useEffect(() => {

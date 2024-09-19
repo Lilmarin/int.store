@@ -25,7 +25,20 @@ const ModalModifyQr = (props) => {
     let newX = e.clientX - startPosition.x;
     let newY = e.clientY - startPosition.y;
 
-    // Actualiza la posición de la imagen sin restricciones
+    // Ajuste para que la imagen no se mueva completamente fuera del círculo
+    const container = containerRef.current.getBoundingClientRect();
+    const image = imageRef.current.getBoundingClientRect();
+
+    // Asegura que la imagen no se salga completamente del contenedor por la derecha o izquierda
+    if (newX > container.width / 2) newX = container.width / 2;
+    if (newX + image.width < container.width / 2)
+      newX = container.width / 2 - image.width;
+
+    // Asegura que la imagen no se salga completamente por arriba o abajo
+    if (newY > container.height / 2) newY = container.height / 2;
+    if (newY + image.height < container.height / 2)
+      newY = container.height / 2 - image.height;
+
     setImagePosition({ x: newX, y: newY });
   };
 
@@ -78,7 +91,7 @@ const ModalModifyQr = (props) => {
     const imageCircleX = (circleCenterX - imagePosition.x) * scaleX;
     const imageCircleY = (circleCenterY - imagePosition.y) * scaleY;
 
-    // Ajustamos el tamaño del canvas al tamaño del círculo escalado
+    // Ajustamos el tamaño del canvas al tamaño del círculo
     canvas.width = diameter;
     canvas.height = diameter;
 
@@ -148,6 +161,8 @@ const ModalModifyQr = (props) => {
               WebkitTouchCallout: "none", // Evita el menú contextual en Safari
               WebkitTapHighlightColor: "rgba(0,0,0,0)", // Elimina el resaltado al tocar en Safari
               pointerEvents: "auto", // Permite que la imagen reciba eventos, pero sin selección
+              width: "100%", // Asegura que la imagen abarque todo el contenedor
+              height: "100%", // Asegura que la imagen abarque todo el contenedor
             }}
             className="absolute"
           />

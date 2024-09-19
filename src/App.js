@@ -16,8 +16,12 @@ import PageWrapper from "./components/PageWrapper/PageWrapper";
 import Tarjetas from "./components/Tarjetas";
 import Qr from "./components/Qr";
 import GaleriaImagenesQr from "./components/Qr/GaleriaImagenesQr";
+import { HelmetProvider } from "react-helmet-async";
+import Transactions from "./components/Transactions/Transactions";
 
 function App() {
+  const domainPage = window.location.host;
+
   const [selectedOption, setSelectedOption] = useState(
     localStorage.getItem("language") ?? "en",
   );
@@ -36,99 +40,102 @@ function App() {
   };
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/terminal"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <Terminal selectedOption={selectedOption} />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/ecommerce"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <Ecommerce />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/registro_principal"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <RegistroPrincipal />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/registro_terminal"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <RegistroTerminal />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/registro_ecommerce"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <RegistroEcommerce />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/gracias"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <Gracias />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/tarjetas"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <Tarjetas />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/QR"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <Qr />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="QR/Standby/Galeria"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <GaleriaImagenesQr />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/"
-          exact
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <Index />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <PageWrapper selectedOption={selectedOption} handler={handler}>
-              <Error404 />
-            </PageWrapper>
-          }
-        />
-      </Routes>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Routes>
+          <Route
+            path="/terminal"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <Terminal selectedOption={selectedOption} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/ecommerce"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <Ecommerce />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/registro_principal"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <RegistroPrincipal />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/registro_terminal"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <RegistroTerminal />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/registro_ecommerce"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <RegistroEcommerce />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/gracias"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <Gracias />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/tarjetas"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <Tarjetas />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/QR"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <Qr />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="QR/Standby/Galeria"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <GaleriaImagenesQr />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/"
+            exact
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                {domainPage === "int.store" ? <Index /> : <Transactions />}
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <PageWrapper selectedOption={selectedOption} handler={handler}>
+                <Error404 />
+              </PageWrapper>
+            }
+          />
+        </Routes>
+      </Router>
+    </HelmetProvider>
   );
 }
 

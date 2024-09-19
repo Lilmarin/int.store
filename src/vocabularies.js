@@ -95,6 +95,15 @@ const dict = {
     Acept: "Aceptar",
     Cancel: "Cancelar",
     AjustImage: "Ajusta la imagen de tu QR",
+    QrTitle1: "Generador de QR",
+    QrTitle2: "Crea tu código QR gratis",
+    QrTitle3: "No conozco códigos QR, ¿Qué debo saber?",
+    QrTitle4: "¿Cómo puedo crear un QR gratuito?",
+    QrTitle5: "¿Qué codigos QR son gratuitos?",
+    UrlCopied: "URL copiada al portapapeles con éxito",
+    QRDowload: "QR generado con éxito",
+    QrWhite: "Blanco",
+    QrBlack: "Negro",
   },
   en: {
     //Traducciones de terminal
@@ -185,6 +194,10 @@ const dict = {
     Acept: "Accept",
     Cancel: "Cancel",
     AjustImage: "Adjust your QR image",
+    UrlCopied: "URL copied to clipboard successfully",
+    QRDowload: "QR generated successfully",
+    QrWhite: "White",
+    QrBlack: "Black",
   },
 };
 export default dict;

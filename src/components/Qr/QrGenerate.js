@@ -1,7 +1,6 @@
 import { I18n } from "aws-amplify/utils";
 import { useEffect, useRef, useState } from "react";
 import upload from "../../Img/upload.svg";
-import axios from "axios";
 import iconQR from "../../Img/icons/qr_code.svg";
 import default_logo_QR from "../../Img/elices-white.jpeg";
 
@@ -50,6 +49,7 @@ const QrGenerate = (props) => {
   const handleCleanData = () => {
     // setFileImageTemp(null);
     setUrlTemp("");
+    setFileImageTemp(default_logo_QR);
     props.setUrl("");
     // props.setSelectedImage(null);
     if (fileInputRef.current) {
@@ -57,7 +57,6 @@ const QrGenerate = (props) => {
     }
   };
   const handleGenerateQR = () => {
-    props.setSelectedImage(fileImageTemp);
     props.setUrl(urlTemp);
     console.log("urlTemp", urlTemp);
   };
@@ -67,9 +66,7 @@ const QrGenerate = (props) => {
         <h1 className="text-[18px] font-bold text-gray-90">
           {I18n.get("QrGenerate")}
         </h1>
-        <h4 className="text-[14px] font-light text-gray-70">
-          {I18n.get("QrLoading")}
-        </h4>
+        <h4 className="text-[14px]  text-gray-70">{I18n.get("QrLoading")}</h4>
       </div>
       <div className="mt-[18px] flex items-center justify-center">
         <div className="relative w-16">

@@ -6,11 +6,11 @@ import QrPrevGenerate from "./Qr/QrPrevGenerate";
 import { useEffect, useState, useRef } from "react";
 import { I18n } from "aws-amplify/utils";
 import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
-import logoEspanol from "./../Img/tagEspanol.png";
-import logoIngles from "./../Img/Logotipo.png";
 import ModalModifyQr from "./Qr/ModalModifyQr";
 import ModalMui from "./Modal/ModalMui";
 import { scriptGoogle } from "../lib/utils/scriptGoogle";
+import { Helmet } from "react-helmet-async";
+import { Alert } from "@mui/material";
 
 const Qr = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -22,6 +22,8 @@ const Qr = () => {
   const navigate = useNavigate(); // Use useNavigate instead of useHistory
   const timer = useRef(null); // Ref to store the timer ID
   const interval = useRef(null); // Ref to store the interval ID
+  const [showAlertURL, setShowAlertURl] = useState(false);
+  const [showAlertDownload, setShowAlertDownload] = useState(false);
 
   useEffect(() => {
     scriptGoogle();
@@ -83,9 +85,19 @@ const Qr = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Generador de QR</title>
+        <meta
+          name="Generador INT de QR GRATIS"
+          content="Genera tantos QR como quieras completamente gratis, con QR de alta calidad."
+        />
+      </Helmet>
       <div
         className="relative flex w-full flex-col items-center sm:h-[1300px] sm:pt-[30%] lg:h-screen lg:pt-[8%]"
-        style={{ backgroundImage: `url(${background_Purple})` }}
+        style={{
+          backgroundImage: `url(${background_Purple})`,
+          fontFamily: "Red Hat Display",
+        }}
       >
         <section className="sm:hidden">
           {language === "es" ? (
@@ -102,9 +114,25 @@ const Qr = () => {
             ></img>
           )}
         </section>
-        <h1 className="font-bold text-white sm:hidden md:flex md:text-[40px] lg:text-[50px]">
-          Generador de QR
+        <h1
+          className="font-bold text-white sm:mb-0 sm:hidden md:flex md:text-[40px] lg:mb-10 lg:text-[50px]"
+          style={{ fontFamily: "Red Hat Display" }}
+        >
+          {I18n.get("QrTitle2")}
         </h1>
+        {/* <h2 className="font-bold text-white sm:hidden md:flex md:text-[40px] lg:text-[50px]">
+          {I18n.get("QrTitle1")}
+        </h2>
+        <h2 className="font-bold text-white sm:hidden md:flex md:text-[40px] lg:text-[50px]">
+          {I18n.get("QrTitle3")}
+        </h2>
+        <h2 className="font-bold text-white sm:hidden md:flex md:text-[40px] lg:text-[50px]">
+          {I18n.get("QrTitle4")}
+        </h2>
+        <h2 className="font-bold text-white sm:hidden md:flex md:text-[40px] lg:text-[50px]">
+          {I18n.get("QrTitle5")}
+        </h2> */}
+
         <section className="flex justify-between sm:mt-[31px] sm:h-[840px] sm:flex-col sm:gap-[250px] lg:mt-[10px] lg:h-[400px] lg:w-[732px] lg:flex-row">
           {/**Left */}
           <QrGenerate
@@ -116,8 +144,53 @@ const Qr = () => {
             setOpenModal={setOpenModal}
           />
           {/**Right */}
-          <QrPrevGenerate url={url} selectedImage={selectedImage} />
+          <QrPrevGenerate
+            url={url}
+            selectedImage={selectedImage}
+            setShowAlertURL={setShowAlertURl}
+            setShowAlertDownload={setShowAlertDownload}
+          />
         </section>
+        {showAlertURL && (
+          <Alert
+            sx={{
+              position: "absolute",
+              bottom: 20,
+              right: 20,
+              // Para pantallas pequeñas (mobile)
+              "@media (max-width: 600px)": {
+                position: "fixed",
+                bottom: 10, // Ajusta la distancia desde el fondo
+                right: 10, // Ajusta la distancia desde la derecha
+              },
+            }}
+            severity="success"
+            onClose={() => setShowAlertURl(false)}
+            className="mt-2"
+          >
+            {I18n.get("UrlCopied")}
+          </Alert>
+        )}
+        {showAlertDownload && (
+          <Alert
+            sx={{
+              position: "absolute",
+              bottom: 20,
+              right: 20,
+              // Para pantallas pequeñas (mobile)
+              "@media (max-width: 600px)": {
+                position: "fixed",
+                bottom: 10, // Ajusta la distancia desde el fondo
+                right: 10, // Ajusta la distancia desde la derecha
+              },
+            }}
+            severity="success"
+            onClose={() => setShowAlertDownload(false)}
+            className="mt-2"
+          >
+            {I18n.get("QRDowload")}
+          </Alert>
+        )}
         {/* <button
           onClick={() => navigate("/QR/Standby/Galeria")} // Change to your desired route
           className="absolute bottom-32 h-[48px] w-[250px] rounded-[32px] bg-white text-primary-50 hover:bg-gray-30 lg:mt-[20px]"
