@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import "../components/Style/Home2.scss";
-import "../components/Style/flexed-columns.scss";
+import "../../components/Style/Home2.scss";
+import "../../components/Style/flexed-columns.scss";
 import {
   Boton,
   Divcenter,
@@ -11,11 +11,11 @@ import {
   H1Home,
   Bottomtext,
 } from "./StyledComponents.js";
-import Terminal from "../Img/Elipse_1.png";
-import Ecomerce from "../Img/Elipse_2.png";
+import Terminal from "../../Img/Elipse_1.png";
+import Ecomerce from "../../Img/Elipse_2.png";
 import { I18n } from "aws-amplify/utils";
 import { NavLink } from "react-router-dom";
-import { scriptGoogle } from "../lib/utils/scriptGoogle.js";
+import { scriptGoogle } from "../../lib/utils/scriptGoogle.js";
 
 const Index = () => {
   useEffect(() => {

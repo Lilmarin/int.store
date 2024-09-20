@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Style/Select.scss";
+import "../../components/Style/Select.scss";
 import { I18n } from "aws-amplify/utils";
 
 const Two = ({ selectedOption, handler }) => {

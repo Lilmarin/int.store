@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../components/Style/Registro.scss";
+import "../../components/Style/Registro.scss";
 import {
   Bottomtext,
   DivColumnRegister,
@@ -9,11 +9,11 @@ import {
   ItemSocial,
   PurpleSubtitle,
 } from "./StyledComponents";
-import Logoint2 from "./../Img/Star_coin.png";
+import Logoint2 from "../../Img/IconInt.png";
 import Carousel from "./Carousel";
-import Whatsapp from "./../Img/Whatsapp.png";
-import X from "./../Img/x.png";
-import Compartir from "./../Img/compartir.png";
+import Whatsapp from "../../Img/Whatsapp.png";
+import X from "../../Img/x.png";
+import Compartir from "../../Img/compartir.png";
 import { I18n } from "aws-amplify/utils";
 
 const Gracias = () => {

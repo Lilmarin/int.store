@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../components/Style/Home.scss";
+import "../../components/Style/Home.scss";
 import {
   Boton,
   Divcenter,
@@ -16,38 +16,34 @@ import {
   HPHome,
   Bottomtext,
 } from "./StyledComponents.js";
-import Circleint from "../Img/Circle_Int.png";
+import Imagentelefono from "../../Img/PhoneWithTerminal.png";
+import Vectorint from "../../Img/Vector_Int_White.png";
 import { I18n } from "aws-amplify/utils";
 import { NavLink } from "react-router-dom";
-import { scriptGoogle } from "../lib/utils/scriptGoogle.js";
+import { scriptGoogle } from "../../lib/utils/scriptGoogle.js";
 
-const Terminal = ({ selectedOption }) => {
+const Home = () => {
   useEffect(() => {
     scriptGoogle();
   }, []);
   return (
     <Homecomponent className="home-component">
-      <Divcolumns
-        gap="1%"
-        columns="repeat(2, 1fr)"
-        columnsmobile="repeat(1,1fr)"
-      >
+      <Divcolumns columns="repeat(2, 1fr)" columnsmobile="repeat(1,1fr)">
         <Divcenter>
-          <H5Home> {I18n.get("Tithoutfeeds")}</H5Home>
-          <H1Home>{I18n.get("Tmoefti")}</H1Home>
-          <H2Home> {I18n.get("Tsiremo")}</H2Home>
-          <NavLink className="enlacebtn2" to="/registro_terminal">
+          <H5Home>{I18n.get("EWithoutFeeds")}</H5Home>
+          <H1Home>{I18n.get("EMakeyourEcommerce")}</H1Home>
+          <H2Home className="simply-money">
+            {I18n.get("ESimplifyrecive")}
+          </H2Home>
+          <NavLink className="enlacebtn2" to="/registro_ecommerce">
             <Boton peligro onClick={() => console.log("Clic en el botón")}>
               {I18n.get("Tbtnfree")}
             </Boton>
           </NavLink>
         </Divcenter>
-        <div className="Left-Container-2">
-          <img
-            className="lg:h-[452px] lg:w-[452px]"
-            src={Circleint}
-            alt="Int Store"
-          />
+        <div className="Left-Container">
+          <img className="img-back" src={Vectorint} alt="Vector Int" />
+          <img className="img-front" src={Imagentelefono} alt="Int Store" />
         </div>
       </Divcolumns>
       <Divcolumn
@@ -55,7 +51,7 @@ const Terminal = ({ selectedOption }) => {
 "
         className="bottom-function"
       >
-        <H3Home> {I18n.get("THowWorks")}</H3Home>
+        <H3Home>{I18n.get("THowWorks")}</H3Home>
         <Divcolumns
           columns="repeat(4,1fr)"
           columnsmobile="repeat(2,1fr)"
@@ -63,38 +59,38 @@ const Terminal = ({ selectedOption }) => {
         >
           <Divitem>
             <Numbercontainer className="person-one">
-              <Numberinside> {I18n.get("TNumberone")}</Numberinside>
+              <Numberinside>{I18n.get("TNumberone")}</Numberinside>
             </Numbercontainer>
-            <HPHome> {I18n.get("Tsign")}</HPHome>
+            <HPHome>{I18n.get("Tsign")}</HPHome>
           </Divitem>
 
           <Divitem>
             <Numbercontainer>
-              <Numberinside> {I18n.get("TNumbertwo")}</Numberinside>
+              <Numberinside>{I18n.get("TNumbertwo")}</Numberinside>
             </Numbercontainer>
-            <HPHome> {I18n.get("TMakeyouBudget")}</HPHome>
+            <HPHome>{I18n.get("ETwoStep")}</HPHome>
           </Divitem>
 
           <Divitem>
             <Numbercontainer>
-              <Numberinside> {I18n.get("TNumberthree")}</Numberinside>
+              <Numberinside>{I18n.get("TNumberthree")}</Numberinside>
             </Numbercontainer>
-            <HPHome> {I18n.get("TMuestrala")}</HPHome>
+            <HPHome>{I18n.get("EThreeStep")}</HPHome>
           </Divitem>
 
           <Divitem>
             <Numbercontainer>
-              <Numberinside> {I18n.get("TNumberFour")}</Numberinside>
+              <Numberinside>{I18n.get("TNumberFour")}</Numberinside>
             </Numbercontainer>
-            <HPHome> {I18n.get("TWin")}</HPHome>
+            <HPHome>{I18n.get("TWin")}</HPHome>
           </Divitem>
         </Divcolumns>
       </Divcolumn>
       <Divcolumn>
-        <Bottomtext> {I18n.get("IBrand")}</Bottomtext>
+        <Bottomtext>{I18n.get("IBrand")}</Bottomtext>
       </Divcolumn>
     </Homecomponent>
   );
 };
 
-export default Terminal;
+export default Home;

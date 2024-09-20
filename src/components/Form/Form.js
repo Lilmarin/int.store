@@ -5,7 +5,7 @@ import {
   DivForm,
   FormSqueleton,
   InputContainer,
-} from "../StyledComponents";
+} from "../../app/intStore/StyledComponents";
 const Form = () => {
   return (
     <div className="flex h-[620px] w-full items-center justify-center ">

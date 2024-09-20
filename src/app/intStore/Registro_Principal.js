@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import "../components/Style/Registro.scss";
+import React from "react";
+import "../../components/Style/Registro.scss";
 import {
   Bottomtext,
   DivColumnRegister,
@@ -9,17 +9,12 @@ import {
   HText2,
   PurpleSubtitle,
 } from "./StyledComponents";
-import Logoint from "./../Img/IconInt.png";
+import Logoint from "../../Img/IconInt.png";
 import { I18n } from "aws-amplify/utils";
-import Form from "./Form/Form";
-import { scriptGoogle } from "../lib/utils/scriptGoogle";
+import Form from "../../components/Form/Form";
 
-const Registro = () => {
+const RegistroPrincipal = () => {
   const [loading, setLoading] = React.useState(true);
-  const language = localStorage.getItem("language") ?? "en";
-  useEffect(() => {
-    scriptGoogle();
-  }, []);
   return (
     <div className="registro-component">
       <Divcolumns2
@@ -35,16 +30,15 @@ const Registro = () => {
         >
           <img className="icon-int" alt="Logotipo Int.Store" src={Logoint} />
           <H1Home lineheight="6vh" fontsize="6vh">
-            {I18n.get("RTSales")}
+            {I18n.get("RPImrove")}
           </H1Home>
-          <HText>{I18n.get("RTOutil")}</HText>
+          <HText>{I18n.get("RPOutil")}</HText>
           <Bottomtext className="btn-text">{I18n.get("IBrand")}</Bottomtext>
         </DivColumnRegister>
         <DivColumnRegister className="registro-right">
           <div className="mt-[50px] flex h-full w-full flex-col items-center justify-center">
             <PurpleSubtitle>{I18n.get("RPWaitList")}</PurpleSubtitle>
-            <HText2>{I18n.get("RTSininnow")}</HText2>
-
+            <HText2>{I18n.get("RPSingInNow")}</HText2>
             {loading && (
               <>
                 <Form />
@@ -57,8 +51,8 @@ const Registro = () => {
                 width: "80%",
                 height: "100%",
               }}
-              src="https://link.superleads.mx/widget/form/AX2ylBDNIejjpZYbFKGo"
-              id="inline-AX2ylBDNIejjpZYbFKGo"
+              src="https://link.superleads.mx/widget/form/DAdTlMSnybT7uu7FG0nj"
+              id="inline-DAdTlMSnybT7uu7FG0nj"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
               data-trigger-value=""
@@ -66,11 +60,11 @@ const Registro = () => {
               data-activation-value=""
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
-              data-form-name="Lista de espera V1"
-              data-height="400"
-              data-layout-iframe-id="inline-AX2ylBDNIejjpZYbFKGo"
-              data-form-id="AX2ylBDNIejjpZYbFKGo"
-              title="Lista de espera V1"
+              data-form-name="Lista de espera V1 _Home"
+              data-height="431"
+              data-layout-iframe-id="inline-DAdTlMSnybT7uu7FG0nj"
+              data-form-id="DAdTlMSnybT7uu7FG0nj"
+              title="Lista de espera V1 _Home"
               onLoad={() => setLoading(false)}
             ></iframe>
             <script src="https://link.superleads.mx/js/form_embed.js"></script>
@@ -80,4 +74,4 @@ const Registro = () => {
     </div>
   );
 };
-export default Registro;
+export default RegistroPrincipal;

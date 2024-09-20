@@ -1,8 +1,4 @@
-import logoEspañol from "./../../Img/LogoEspanol.png";
-import logoingles from "./../../Img/Logotipo.png";
 import background_Purple from "./../../Img/Backkground_Purple.png";
-import QrGenerate from "./QrGenerate";
-import QrPrevGenerate from "./QrPrevGenerate";
 import { useEffect, useState } from "react";
 import QrFlores1 from "./../../Img/QRFlower1.webp";
 import QrFlores2 from "./../../Img/QRFlower2.webp";

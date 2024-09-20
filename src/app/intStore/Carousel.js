@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../components/Style/Carousel.scss";
+import "../../components/Style/Carousel.scss";
 import { HText, Numberinside } from "./StyledComponents";
 import { I18n } from "aws-amplify/utils";
 

@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Ecommerce from "./components/Ecommerce";
-import RegistroPrincipal from "./components/Registro_Principal";
-import Gracias from "./components/Gracias";
-import RegistroEcommerce from "./components/Registro_Ecommerce";
-import RegistroTerminal from "./components/Registro_Terminal";
-import Error404 from "./components/Error404";
-import Index from "./components/Index2";
-import Terminal from "./components/Terminal";
+import Ecommerce from "./app/intStore/Ecommerce";
+import RegistroPrincipal from "./app/intStore/Registro_Principal";
+import Gracias from "./app/intStore/Gracias";
+import RegistroEcommerce from "./app/intStore/Registro_Ecommerce";
+import RegistroTerminal from "./app/intStore/Registro_Terminal";
+import Error404 from "./app/intStore/Error404";
+import Index from "./app/intStore/Index2";
+import Terminal from "./app/intStore/Terminal";
 // eslint-disable-next-line
 import vocabularies from "../src/vocabularies";
 import { I18n } from "aws-amplify/utils";
 import PageWrapper from "./components/PageWrapper/PageWrapper";
-import Tarjetas from "./components/Tarjetas";
-import Qr from "./components/Qr";
+import Tarjetas from "./app/intStore/Tarjetas";
+import Qr from "./app/qr/Qr";
 import GaleriaImagenesQr from "./components/Qr/GaleriaImagenesQr";
 import { HelmetProvider } from "react-helmet-async";
-import Transactions from "./components/Transactions/Transactions";
+import Transactions from "./app/transactions/Transactions";
 
 function App() {
   const pageDomain = window.location.host;

@@ -1,14 +1,14 @@
-import logoEspañol from "./../Img/LogoEspanol.png";
-import logoingles from "./../Img/Logotipo.png";
-import background_Purple from "./../Img/Backkground_Purple.png";
-import QrGenerate from "./Qr/QrGenerate";
-import QrPrevGenerate from "./Qr/QrPrevGenerate";
+import logoEspañol from "../../Img/LogoEspanol.png";
+import logoingles from "../../Img/Logotipo.png";
+import background_Purple from "../../Img/Backkground_Purple.png";
+import QrGenerate from "../../components/Qr/QrGenerate";
+import QrPrevGenerate from "../../components/Qr/QrPrevGenerate";
 import { useEffect, useState, useRef } from "react";
 import { I18n } from "aws-amplify/utils";
 import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
-import ModalModifyQr from "./Qr/ModalModifyQr";
-import ModalMui from "./Modal/ModalMui";
-import { scriptGoogle } from "../lib/utils/scriptGoogle";
+import ModalModifyQr from "../../components/Qr/ModalModifyQr";
+import ModalMui from "../../components/Modal/ModalMui";
+import { scriptGoogle } from "../../lib/utils/scriptGoogle";
 import { Helmet } from "react-helmet-async";
 import { Alert } from "@mui/material";
 

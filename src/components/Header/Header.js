@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Header.scss";
-import Select from "../Select";
+import Select from "../../app/intStore//Select";
 // eslint-disable-next-line
 import { I18n } from "aws-amplify/utils";
 import { NavLink } from "react-router-dom";

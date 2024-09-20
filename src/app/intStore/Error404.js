@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "../components/Style/Error404.scss";
-import Imagentelefono from "../Img//Phone_Without_Vector.png";
-import Circleint from "../Img/Circle_Int.png";
-import PhoneTerminal from "../Img/PhoneTerminal.png";
+import "../../components/Style/Error404.scss";
+import Imagentelefono from "../../Img/PhoneWithTerminal.png";
+import Circleint from "../../Img/Circle_Int.png";
+import PhoneTerminal from "../../Img/PhoneTerminal.png";
 
 const Error404 = () => {
   useEffect(() => {
