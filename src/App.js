@@ -20,8 +20,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Transactions from "./components/Transactions/Transactions";
 
 function App() {
-  const domainPage = window.location.host;
-
+  const pageDomain = window.location.host;
   const [selectedOption, setSelectedOption] = useState(
     localStorage.getItem("language") ?? "en",
   );
@@ -115,14 +114,26 @@ function App() {
               </PageWrapper>
             }
           />
-
           <Route
             path="/"
             exact
             element={
-              <PageWrapper selectedOption={selectedOption} handler={handler}>
-                {domainPage === "int.store" ? <Index /> : <Transactions />}
-              </PageWrapper>
+              <>
+                {pageDomain === "int.store" ? (
+                  <>
+                    <PageWrapper
+                      selectedOption={selectedOption}
+                      handler={handler}
+                    >
+                      <Index />
+                    </PageWrapper>
+                  </>
+                ) : (
+                  <>
+                    <Transactions />
+                  </>
+                )}
+              </>
             }
           />
           <Route
