@@ -68,10 +68,11 @@ export default function Transactions() {
     createData(50, "USD", 194.25, "2023-05-09"),
   ];
 
+  // Search handler that filters rows by TransactionID
   const handleSearchByID = (e) => {
-    const searchValue = e.target.value;
+    const searchValue = e.target.value.trim();
     if (searchValue === "") {
-      setFilteredRows(rows); // Si el campo está vacío, mostramos todas las filas
+      setFilteredRows(rows); // Show all rows if search is empty
     } else {
       const filtered = rows.filter((row) =>
         row.TransactionID.toString().includes(searchValue),
@@ -80,7 +81,7 @@ export default function Transactions() {
     }
   };
 
-  // Inicializamos `filteredRows` con todas las filas al cargar el componente
+  // Initialize filteredRows with all rows when the component mounts
   React.useEffect(() => {
     setFilteredRows(rows);
   }, []);
@@ -88,11 +89,20 @@ export default function Transactions() {
   return (
     <section className="flex h-full flex-col bg-black text-white lg:h-screen lg:flex-row">
       <div className="flex w-full flex-col items-center justify-center ">
-        <section className="flex h-[400px] w-full flex-col items-center gap-5  px-7 sm:justify-start lg:w-[531px]  lg:justify-center lg:px-0">
-          <img src={eliceWhite} alt="White Elice" className="sm:w-36 lg:w-44" />
-          <h1>Total transacciones</h1>
-          <div className="flex h-[44px] w-full items-center justify-center rounded-full bg-white text-black">
-            <p>1,000’000,000’000,000</p>
+        <section className="flex h-[400px] w-full flex-col items-center gap-5 px-7 sm:justify-start lg:w-[531px] lg:justify-center lg:px-0">
+          <img
+            src={eliceWhite}
+            alt="White Elice"
+            className="sm:w-36 lg:w-44"
+            onClick={() => (window.location.href = "https://int.store/")}
+          />
+          <h1 className="text-[34px] font-bold lg:text-[36px]">
+            Total transacciones
+          </h1>
+          <div className="flex h-[69pxx] w-full items-center justify-center rounded-full bg-white text-black">
+            <p className="text-[26px] font-light lg:text-[36px]">
+              1,000’000,000’000,000
+            </p>
           </div>
           <div className="flex flex-col items-center justify-center">
             <p>© Intelligent Networked Transactions LLC</p>
@@ -102,28 +112,40 @@ export default function Transactions() {
       </div>
 
       <div className="flex h-full w-full flex-col items-center justify-start ">
-        <section className="flex h-full w-full flex-col items-center gap-5  sm:pt-0 lg:pt-10">
+        <section className="flex h-full w-full flex-col items-center gap-5 sm:pt-0 lg:pt-10">
           <h1 className="text-[30px] font-bold">Últimas transacciones</h1>
           <Input
-            onChange={(e) => handleSearchByID(e)}
+            type="tel" // Usa "tel" para mostrar el teclado numérico en dispositivos móviles
+            onChange={handleSearchByID}
             placeholder="Buscar Transacción ID"
             sx={{
               width: "50%",
               color: "white",
               "&:before": {
-                borderBottom: "1px solid white", // Borde por defecto
+                borderBottom: "1px solid white", // Default border
               },
               "&:hover:not(.Mui-disabled):before": {
-                borderBottom: "1px solid white", // Borde al hacer hover
+                borderBottom: "1px solid white", // Hover border
               },
               "&:after": {
-                borderBottom: "2px solid white", // Borde al hacer focus
+                borderBottom: "2px solid white", // Focus border
               },
             }}
           />
           <TableContainer
             component={Paper}
-            sx={{ backgroundColor: "black", color: "white", height: "600px" }}
+            sx={{
+              backgroundColor: "black",
+              color: "white",
+              height: "600px", // Mantener la altura para permitir el scroll
+              overflowY: "scroll", // Permitir el desplazamiento en el eje Y
+              // Ocultar la barra de scroll visualmente
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+              "-ms-overflow-style": "none", // Para IE y Edge
+              "scrollbar-width": "none", // Para Firefox
+            }}
           >
             <Table
               sx={{
@@ -137,19 +159,24 @@ export default function Transactions() {
               <TableHead>
                 <TableRow
                   sx={{
-                    "& th": { color: "white", textAlign: "center", border: 0 },
+                    "& th": {
+                      color: "white",
+                      textAlign: "center",
+                      border: 0,
+                      fontSize: "12px", // Disminuir el tamaño de la letra en el encabezado
+                    },
                   }}
                 >
                   <TableCell align="center">Transaction ID</TableCell>
+                  <TableCell align="center">Tiempo</TableCell>
                   <TableCell align="center">Moneda</TableCell>
                   <TableCell align="center">Cantidad</TableCell>
-                  <TableCell align="center">Fecha y hora</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row) => (
+                {filteredRows.map((row) => (
                   <TableRow
-                    key={row.name}
+                    key={row.TransactionID}
                     sx={{
                       "& td": {
                         color: "white",
@@ -159,9 +186,9 @@ export default function Transactions() {
                     }}
                   >
                     <TableCell align="center">{row.TransactionID}</TableCell>
+                    <TableCell align="center">{row.Fecha}</TableCell>
                     <TableCell align="center">{row.Moneda}</TableCell>
                     <TableCell align="center">{row.Cantidad}</TableCell>
-                    <TableCell align="center">{row.Fecha}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -169,75 +196,6 @@ export default function Transactions() {
           </TableContainer>
         </section>
       </div>
-
-      {/* <section className="flex h-full w-full items-start justify-center pt-10">
-        <div className="flex h-full w-[570px] flex-col items-center justify-start gap-5">
-          <h1 className="text-[30px] font-bold">Últimas transacciones</h1>
-          <Input
-            onChange={(e) => handleSearchByID(e)}
-            placeholder="Buscar Transacción ID"
-            sx={{
-              width: "50%",
-              color: "white",
-              "&:before": {
-                borderBottom: "1px solid white", // Borde por defecto
-              },
-              "&:hover:not(.Mui-disabled):before": {
-                borderBottom: "1px solid white", // Borde al hacer hover
-              },
-              "&:after": {
-                borderBottom: "2px solid white", // Borde al hacer focus
-              },
-            }}
-          />
-          <TableContainer
-            component={Paper}
-            sx={{ backgroundColor: "black", color: "white", height: "600px" }}
-          >
-            <Table
-              sx={{
-                minWidth: 10,
-                color: "white",
-                textAlign: "center",
-                borderCollapse: "collapse",
-              }}
-              aria-label="simple table"
-            >
-              <TableHead>
-                <TableRow
-                  sx={{
-                    "& th": { color: "white", textAlign: "center", border: 0 },
-                  }}
-                >
-                  <TableCell align="center">Transaction ID</TableCell>
-                  <TableCell align="center">Moneda</TableCell>
-                  <TableCell align="center">Cantidad</TableCell>
-                  <TableCell align="center">Fecha y hora</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((row) => (
-                  <TableRow
-                    key={row.name}
-                    sx={{
-                      "& td": {
-                        color: "white",
-                        textAlign: "center",
-                        border: 0,
-                      },
-                    }}
-                  >
-                    <TableCell align="center">{row.TransactionID}</TableCell>
-                    <TableCell align="center">{row.Moneda}</TableCell>
-                    <TableCell align="center">{row.Cantidad}</TableCell>
-                    <TableCell align="center">{row.Fecha}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </div>
-      </section> */}
     </section>
   );
 }

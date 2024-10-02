@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -24,6 +24,32 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="app INT" />
+    <meta property="og:description" content="1 link, 30,000 formas de pagar" />
+    <meta property="og:image" content="https://int.store/opengraph-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta property="og:url" content="https://intstore.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="app INT" />
+    <meta name="twitter:description" content="1 link, 30,000 formas de pagar" />
+    <meta
+      name="twitter:image"
+      content="https://int.store/opengraph-image.png"
+    />
+
     <title>
       INT.Store Solutions | Empowering Entrepeneurs with the best tools to make
       money.
@@ -64,7 +90,7 @@
         window,
         document,
         "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
+        "https://connect.facebook.net/en_US/fbevents.js",
       );
       fbq("init", "2320015218060610");
       fbq("track", "PageView");
