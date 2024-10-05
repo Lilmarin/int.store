@@ -1,5 +1,5 @@
-import "./Why.css"; // Importa el archivo CSS
 import logoCentral from "./Img/logoWhite.svg";
+import onlyLogo from "./Img/onlyLogo.svg";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
@@ -14,9 +14,9 @@ export default function Why() {
   };
   return (
     <section
-      className={`relative flex h-screen  w-full flex-col items-center
-        ${isHidden ? "justify-center" : "justify-between"}
-        bg-black px-[300px] py-20 text-white sm:px-4 sm:py-20 sm:text-[22px] lg:text-[31px]`}
+      className={`jusce relative flex  h-screen w-full flex-col
+        items-center justify-center gap-5
+        bg-black px-[300px] text-white sm:px-4 sm:py-20 sm:text-[22px] lg:py-20 lg:text-[31px]`}
       style={{ fontFamily: "Red Hat Display" }}
     >
       {/* Sección principal con los dos bloques de texto */}
@@ -31,7 +31,7 @@ export default function Why() {
         )}
       </button>
       <section
-        className={`flex-row items-center justify-between gap-10 sm:w-full lg:w-[80%]
+        className={`flex-row items-center justify-between gap-10 sm:h-[100px] sm:w-full lg:h-[150px] lg:w-[80%]
         ${isHidden ? "hidden" : "flex"}`}
       >
         <div className="flex h-[200px] flex-col justify-center  sm:w-full lg:w-[400px] ">
@@ -49,14 +49,14 @@ export default function Why() {
       {/* Logotipo central */}
       <img
         onClick={handleGoToHome}
-        src={logoCentral}
+        src={isHidden ? onlyLogo : logoCentral}
         alt="Logotipo Español"
         className="sm:h-[80px] sm:w-[270px] lg:h-[200px] lg:w-[698px]"
       ></img>
 
       {/* Sección final con bloque de texto */}
       <section
-        className={`w-full flex-row items-center justify-center ${isHidden ? "hidden" : "flex"}`}
+        className={`w-full flex-row items-center justify-center ${isHidden ? "hidden" : "flex"} sm:h-[100px] lg:h-[150px]`}
       >
         <div className="flex h-[200px] w-[300px] flex-col items-center justify-center">
           <p className="text-center">Mente</p>

@@ -21,7 +21,12 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
   }, []);
 
   const handleGoToCentro = () => {
-    window.location.href = "https://centro.int.store";
+    const path = window.location.pathname;
+    if (path === "/") {
+      window.location.href = "https://centro.int.store";
+      return;
+    }
+    window.location.href = "https://why.int.store";
   };
 
   return (

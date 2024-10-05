@@ -35,7 +35,7 @@ export default function Centro() {
           alt="Logotipo Español"
           className=" sm:h-[80px] sm:w-[270px] lg:h-[200px] lg:w-[698px]"
         ></img>
-        <div className="h-3 w-full bg-white"></div>
+        <div className="h-3 w-1/2 bg-white"></div>
         <p className="w-full text-center text-[16px] text-white lg:text-[31px]">
           Empoderamos a los emprendedores que quieren mejorar la sociedad y sus
           familias, con las herramientas necesarias para lograrlo en el menor

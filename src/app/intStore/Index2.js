@@ -28,7 +28,9 @@ const Index = () => {
           {/* <H5Home className="sin-mensualidades">
             {I18n.get("IWithoutpayment")}
           </H5Home> */}
-          <H1Home className="potencializa">{I18n.get("Ipotential")}</H1Home>
+          <H1Home className="potencializa sm:pt-5 lg:pt-0">
+            {I18n.get("Ipotential")}
+          </H1Home>
           <H1Home marginf="1vh auto 3vh" fontsize="7.2vh" className="tunegocio">
             {I18n.get("IHeadertitle1")}
           </H1Home>

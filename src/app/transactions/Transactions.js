@@ -105,8 +105,12 @@ export default function Transactions() {
             </p>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <p>© Intelligent Networked Transactions LLC</p>
-            <u>Últimas transacciones</u>
+            <button
+              onClick={() => (window.location.href = "https://int.store/")}
+            >
+              <p>© Intelligent Networked Transactions LLC</p>
+            </button>
+            {/* <u>Últimas transacciones</u> */}
           </div>
         </section>
       </div>

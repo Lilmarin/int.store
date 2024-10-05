@@ -42,7 +42,7 @@ const Home = () => {
           </NavLink>
         </Divcenter>
         <div className="Left-Container">
-          <img className="img-back" src={Vectorint} alt="Vector Int" />
+          {/* <img className="img-back" src={Vectorint} alt="Vector Int" /> */}
           <img className="img-front" src={Imagentelefono} alt="Int Store" />
         </div>
       </Divcolumns>
