@@ -87,7 +87,15 @@ const Home = () => {
         </Divcolumns>
       </Divcolumn>
       <Divcolumn>
-        <Bottomtext>{I18n.get("IBrand")}</Bottomtext>
+        <Bottomtext> {I18n.get("IBrand")}</Bottomtext>
+        <p
+          className="text-[14px] text-white"
+          onClick={() =>
+            (window.location.href = "https://transactions.int.store")
+          }
+        >
+          {I18n.get("ILastTransactions")}
+        </p>
       </Divcolumn>
     </Homecomponent>
   );

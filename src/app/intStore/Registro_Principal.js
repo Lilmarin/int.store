@@ -33,7 +33,19 @@ const RegistroPrincipal = () => {
             {I18n.get("RPImrove")}
           </H1Home>
           <HText>{I18n.get("RPOutil")}</HText>
-          <Bottomtext className="btn-text">{I18n.get("IBrand")}</Bottomtext>
+          <div>
+            <Bottomtext className="btn-text pb-2">
+              {I18n.get("IBrand")}
+            </Bottomtext>
+            <p
+              className="btn-text text-[14px] text-white"
+              onClick={() =>
+                (window.location.href = "https://transactions.int.store")
+              }
+            >
+              {I18n.get("ILastTransactions")}
+            </p>
+          </div>
         </DivColumnRegister>
         <DivColumnRegister className="registro-right">
           <div className="mt-[50px] flex h-full w-full flex-col items-center justify-center">

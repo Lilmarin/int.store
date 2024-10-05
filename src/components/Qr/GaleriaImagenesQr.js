@@ -50,9 +50,16 @@ const GaleriaImagenesQr = (props) => {
           {I18n.get("QrGenerateQr")}
         </button>
       </NavLink>
-
-      <footer className="text-[20px] font-light text-white sm:relative sm:mt-10 lg:absolute lg:bottom-10 lg:mt-[200px]">
-        {I18n.get("IBrand")}
+      <footer className="absolute bottom-2 text-center text-[16px] font-light text-white sm:mt-10 lg:mt-[200px]">
+        <p>{I18n.get("IBrand")}</p>
+        <p
+          className="text-[14px] text-white"
+          onClick={() =>
+            (window.location.href = "https://transactions.int.store")
+          }
+        >
+          {I18n.get("ILastTransactions")}
+        </p>
       </footer>
     </div>
   );

@@ -52,6 +52,7 @@ const dict = {
     ISeemore: " Ver más",
     IEcommercetitle: " E-COMMERCE EN SEGUNDOS",
     IBrand: "© Intelligent Networked Transactions LLC",
+    ILastTransactions: "Últimas transacciones",
     //Traducciones de Error 404
     ETitle: "Error 404",
     ENotFound: "¡Parece que esta página no existe!",
@@ -156,6 +157,7 @@ const dict = {
     ISeemore: "See more",
     IEcommercetitle: "Start selling online in seconds",
     IBrand: "© Intelligent Networked Transactions LLC",
+    ILastTransactions: "Last transactions",
     //Traducciones de Error 404
     ETitle: "Error 404",
     ENotFound: "It seems that this page does not exist!",

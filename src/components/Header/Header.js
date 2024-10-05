@@ -20,10 +20,14 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
     console.log(lastUrl);
   }, []);
 
+  const handleGoToCentro = () => {
+    window.location.href = "https://centro.int.store";
+  };
+
   return (
     <div className="Header-container">
       <div className="la-select">
-        <NavLink to="/" className="Nav-left">
+        <NavLink className="Nav-left" onClick={handleGoToCentro}>
           {language === "es" ? (
             <img className="logo" alt="Logotipo Español" src={LogoEspanol} />
           ) : (
