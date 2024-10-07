@@ -17,9 +17,9 @@ import Tarjetas from "./app/intStore/Tarjetas";
 import Qr from "./app/qr/Qr";
 import GaleriaImagenesQr from "./components/Qr/GaleriaImagenesQr";
 import { HelmetProvider } from "react-helmet-async";
-import Transactions from "./app/transactions/Transactions";
-import Centro from "./app/centro/Centro";
-import Why from "./app/why/Why";
+// import Transactions from "./app/transactions/Transactions";
+// import Centro from "./app/centro/Centro";
+// import Why from "./app/why/Why";
 
 function App() {
   const pageDomain = window.location.host;
@@ -101,7 +101,7 @@ function App() {
             }
           />
           <Route
-            path="/QR"
+            path="/qr"
             element={
               <PageWrapper selectedOption={selectedOption} handler={handler}>
                 <Qr />
@@ -109,7 +109,7 @@ function App() {
             }
           />
           <Route
-            path="QR/Standby/Galeria"
+            path="/qr/Standby/Galeria"
             element={
               <PageWrapper selectedOption={selectedOption} handler={handler}>
                 <GaleriaImagenesQr />
@@ -121,7 +121,10 @@ function App() {
             exact
             element={
               <>
-                {pageDomain === "int.store" && (
+                <PageWrapper selectedOption={selectedOption} handler={handler}>
+                  <Index />
+                </PageWrapper>
+                {/* {pageDomain === "int.store" && (
                   <PageWrapper
                     selectedOption={selectedOption}
                     handler={handler}
@@ -144,6 +147,14 @@ function App() {
                     <Centro />
                   </>
                 )}
+                {pageDomain === "localhost:3000" && (
+                  <PageWrapper
+                    selectedOption={selectedOption}
+                    handler={handler}
+                  >
+                    <Centro />
+                  </PageWrapper>
+                )} */}
               </>
             }
           />

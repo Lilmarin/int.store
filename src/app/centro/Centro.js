@@ -1,7 +1,7 @@
 import React from "react";
 import background_Purple from "../../Img/Backkground_Purple.png";
 import logo_white from "../../Img/LogoEspanol.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Centro() {
   const handleGoToSignificado = () => {
@@ -19,6 +19,9 @@ export default function Centro() {
 
   const handleGoToTransactions = () => {
     window.location.href = "https://transactions.int.store";
+  };
+  const handleGoToGenerateQr = () => {
+    window.location.href = "https://int.store/qr";
   };
   return (
     <section
@@ -46,20 +49,28 @@ export default function Centro() {
             onClick={handleGoToSignificado}
             className=" lg:h-45px w-[110px] rounded-full bg-white p-3 text-[12px] text-primary-40 lg:text-[16px]"
           >
-            Significado
+            <p>Significado</p>
           </button>
           <button
             onClick={handleGoToHome}
             className=" lg:h-45px w-[110px] rounded-full bg-white p-3 text-[12px] text-primary-40 lg:text-[16px]"
           >
-            Home
+            <p>Home</p>
           </button>
           <button
             onClick={handleGoToApp}
             className=" lg:h-45px w-[110px] rounded-full bg-white p-3 text-[12px] text-primary-40 lg:text-[16px]"
           >
-            App
+            <p>App</p>
           </button>
+          <NavLink
+            to="/qr"
+            className=" lg:h-45px w-[190px] rounded-full bg-white p-3
+            text-center text-[12px] text-primary-40 lg:text-[16px]"
+          >
+            <p className="sm:hidden md:block">Generador QR</p>
+            <p className="sm:block md:hidden">QR</p>
+          </NavLink>
         </section>
         <footer className="mt-20 flex flex-col items-center">
           <p className="text-[12px] text-white lg:text-[16px]">
