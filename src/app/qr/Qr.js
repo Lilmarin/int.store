@@ -96,6 +96,8 @@ const Qr = () => {
         className="relative flex w-full flex-col items-center sm:h-[1300px] sm:pt-[30%] lg:h-screen lg:pt-[8%]"
         style={{
           backgroundImage: `url(${background_Purple})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
           fontFamily: "Red Hat Display",
         }}
       >
