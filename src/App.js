@@ -149,7 +149,7 @@ function App() {
                     selectedOption={selectedOption}
                     handler={handler}
                   >
-                    <Centro />
+                    <Why />
                   </PageWrapper>
                 )}
               </>

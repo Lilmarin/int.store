@@ -51,7 +51,7 @@ export default function Why() {
         onClick={handleGoToHome}
         src={isHidden ? onlyLogo : logoCentral}
         alt="Logotipo Español"
-        className="sm:h-[80px] sm:w-[270px] lg:h-[200px] lg:w-[698px]"
+        className={`sm:h-[80px] sm:w-[270px] lg:h-[200px] lg:w-[698px] ${isHidden ? "ml-0" : "ml-[27px]"}`}
       ></img>
 
       {/* Sección final con bloque de texto */}
