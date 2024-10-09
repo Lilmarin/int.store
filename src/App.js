@@ -145,12 +145,14 @@ function App() {
                   </>
                 )}
                 {pageDomain === "localhost:3000" && (
-                  <PageWrapper
-                    selectedOption={selectedOption}
-                    handler={handler}
-                  >
-                    <Why />
-                  </PageWrapper>
+                  <>
+                    <PageWrapper
+                      selectedOption={selectedOption}
+                      handler={handler}
+                    >
+                      <Index />
+                    </PageWrapper>
+                  </>
                 )}
               </>
             }

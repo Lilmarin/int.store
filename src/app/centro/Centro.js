@@ -63,14 +63,14 @@ export default function Centro() {
           >
             <p>App</p>
           </button>
-          <NavLink
-            to="/qr"
+          <button
+            onClick={handleGoToGenerateQr}
             className=" lg:h-45px w-[190px] rounded-full bg-white p-3
             text-center text-[12px] text-primary-40 lg:text-[16px]"
           >
             <p className="sm:hidden md:block">Generador QR</p>
             <p className="sm:block md:hidden">QR</p>
-          </NavLink>
+          </button>
         </section>
         <footer className="mt-20 flex flex-col items-center">
           <p className="text-[12px] text-white lg:text-[16px]">

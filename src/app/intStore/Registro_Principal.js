@@ -38,7 +38,7 @@ const RegistroPrincipal = () => {
               {I18n.get("IBrand")}
             </Bottomtext>
             <p
-              className="btn-text text-[14px] text-white"
+              className="btn-text cursor-pointer text-[14px] text-white"
               onClick={() =>
                 (window.location.href = "https://transactions.int.store")
               }

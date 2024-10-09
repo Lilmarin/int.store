@@ -53,7 +53,7 @@ const GaleriaImagenesQr = (props) => {
       <footer className="absolute bottom-2 text-center text-[16px] font-light text-white sm:mt-10 lg:mt-[200px]">
         <p>{I18n.get("IBrand")}</p>
         <p
-          className="text-[14px] text-white"
+          className="cursor-pointer text-[14px] text-white"
           onClick={() =>
             (window.location.href = "https://transactions.int.store")
           }

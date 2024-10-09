@@ -93,7 +93,7 @@ export default function Transactions() {
           <img
             src={eliceWhite}
             alt="White Elice"
-            className="sm:w-36 lg:w-44"
+            className="cursor-pointer sm:w-36 lg:w-44"
             onClick={() => (window.location.href = "https://int.store/")}
           />
           <h1 className="text-[34px] font-bold lg:text-[36px]">

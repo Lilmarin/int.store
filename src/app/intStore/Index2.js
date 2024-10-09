@@ -104,7 +104,7 @@ const Index = () => {
       <Divcolumn>
         <Bottomtext> {I18n.get("IBrand")}</Bottomtext>
         <p
-          className="text-[14px] text-white"
+          className="cursor-pointer text-[14px] text-white"
           onClick={() =>
             (window.location.href = "https://transactions.int.store")
           }

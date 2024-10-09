@@ -26,7 +26,8 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
       window.location.href = "https://centro.int.store";
       return;
     }
-    window.location.href = "https://why.int.store";
+    // window.location.href = "https://why.int.store";
+    window.location.href = "https://centro.int.store";
   };
 
   return (

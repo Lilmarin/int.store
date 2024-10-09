@@ -51,7 +51,7 @@ export default function Why() {
         onClick={handleGoToHome}
         src={isHidden ? onlyLogo : logoCentral}
         alt="Logotipo Español"
-        className={`sm:h-[80px] sm:w-[270px] lg:h-[200px] lg:w-[698px] ${isHidden ? "ml-0" : "ml-[27px]"}`}
+        className={`sm:h-[80px] sm:w-[270px] lg:h-[200px] lg:w-[698px] ${isHidden ? "ml-0" : "sm:ml-[11px] lg:ml-[27px]"} cursor-pointer`}
       ></img>
 
       {/* Sección final con bloque de texto */}
@@ -67,8 +67,12 @@ export default function Why() {
       <footer
         className={` bottom-5 ${isHidden ? "absolute" : "hidden"} text-center text-[16px]`}
       >
-        <p>© Intelligent Networked Transactions LLC</p>
-        <p onClick={handleGoToTransactions}>Últimas transacciones</p>
+        <p className="cursor-pointer" onClick={handleGoToHome}>
+          © Intelligent Networked Transactions LLC
+        </p>
+        <p className="cursor-pointer" onClick={handleGoToTransactions}>
+          Últimas transacciones
+        </p>
       </footer>
     </section>
   );
