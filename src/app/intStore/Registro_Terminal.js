@@ -43,7 +43,7 @@ const Registro = () => {
               {I18n.get("IBrand")}
             </Bottomtext>
             <p
-              className="btn-text cursor-pointer text-[14px] text-white"
+              className="btn-text fontRedHat text-whitefontRedHat cursor-pointer text-[14px]"
               onClick={() =>
                 (window.location.href = "https://transactions.int.store")
               }

@@ -23,3 +23,7 @@ input {
 input::placeholder {
   color: #afb8bc;
 }
+
+.fontRedHat {
+  font-family: "Red Hat Display", sans-serif;
+}

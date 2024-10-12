@@ -49,7 +49,7 @@ export default function Centro() {
             onClick={handleGoToSignificado}
             className=" lg:h-45px w-[110px] rounded-full bg-white p-3 text-[12px] text-primary-40 lg:text-[16px]"
           >
-            <p>Significado</p>
+            <p>Why</p>
           </button>
           <button
             onClick={handleGoToHome}
