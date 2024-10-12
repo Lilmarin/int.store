@@ -11,6 +11,7 @@ import Paper from "@mui/material/Paper";
 import { getAllTransactions } from "../../services/transactions";
 import { formatNumber } from "../../lib/formatNumber";
 import CircularProgress from "@mui/material/CircularProgress";
+import { useSpring, animated } from "@react-spring/web";
 
 export default function Transactions() {
   const [transactions, setTransactions] = React.useState([]);
@@ -19,6 +20,11 @@ export default function Transactions() {
   const [loading, setLoading] = React.useState(true); // Maneja la primera carga
   const [firstLoad, setFirstLoad] = React.useState(true); // Nuevo estado para la primera carga
   const [animate, setAnimate] = React.useState(false); // Nuevo estado para la animación
+  const springProps = useSpring({
+    from: { number: 0 },
+    to: { number: countTransactions },
+    config: { tension: 120, friction: 14 }, // Ajusta la velocidad de la animación
+  });
 
   const fetchTransactions = async () => {
     try {
@@ -95,13 +101,9 @@ export default function Transactions() {
 </p>
 
             )} */}
-            <p
-              className={`text-[26px] font-light transition-transform duration-500 ease-out lg:text-[36px] ${
-                animate ? "scale-110" : "scale-100"
-              }`}
-            >
-              {formatNumber(countTransactions)}
-            </p>
+            <animated.p className="text-[26px] font-light lg:text-[36px]">
+              {springProps.number.to((n) => formatNumber(Math.floor(n)))}
+            </animated.p>
           </div>
           <div className="flex flex-col items-center justify-center">
             <button

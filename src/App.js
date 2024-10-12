@@ -152,7 +152,7 @@ function App() {
                     >
                       <Index />
                     </PageWrapper> */}
-                    <Transactions />
+                    <Centro />
                   </>
                 )}
               </>

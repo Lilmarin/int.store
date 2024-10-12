@@ -65,10 +65,10 @@ export default function Centro() {
           </button>
           <button
             onClick={handleGoToGenerateQr}
-            className=" lg:h-45px w-[190px] rounded-full bg-white p-3
+            className=" lg:h-45px w-[110px] rounded-full bg-white p-3
             text-center text-[12px] text-primary-40 lg:text-[16px]"
           >
-            <p className="sm:hidden md:block">Generador QR</p>
+            <p className="sm:hidden md:block">QR</p>
             <p className="sm:block md:hidden">QR</p>
           </button>
         </section>
