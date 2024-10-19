@@ -91,6 +91,7 @@ const Qr = () => {
           name="Generador INT de QR GRATIS"
           content="Genera tantos QR como quieras completamente gratis, con QR de alta calidad."
         />
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
       </Helmet>
       <div
         className="relative flex w-full flex-col items-center sm:h-[1300px] sm:pt-[30%] lg:h-screen lg:pt-[8%]"
