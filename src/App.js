@@ -20,6 +20,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Transactions from "./app/transactions/Transactions";
 import Centro from "./app/centro/Centro";
 import Why from "./app/why/Why";
+import PageWrapperQr from "./components/PageWrapper/PageWrapperQr";
 
 function App() {
   const pageDomain = window.location.host;
@@ -103,9 +104,9 @@ function App() {
           <Route
             path="/qr"
             element={
-              <PageWrapper selectedOption={selectedOption} handler={handler}>
+              <PageWrapperQr selectedOption={selectedOption} handler={handler}>
                 <Qr />
-              </PageWrapper>
+              </PageWrapperQr>
             }
           />
           <Route
@@ -146,13 +147,12 @@ function App() {
                 )}
                 {pageDomain === "localhost:3000" && (
                   <>
-                    {/* <PageWrapper
+                    <PageWrapper
                       selectedOption={selectedOption}
                       handler={handler}
                     >
-                      <Index />
-                    </PageWrapper> */}
-                    <Centro />
+                      <Qr />
+                    </PageWrapper>
                   </>
                 )}
               </>

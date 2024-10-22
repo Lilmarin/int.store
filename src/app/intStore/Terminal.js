@@ -91,7 +91,12 @@ const Terminal = ({ selectedOption }) => {
         </Divcolumns>
       </Divcolumn>
       <Divcolumn>
-        <Bottomtext> {I18n.get("IBrand")}</Bottomtext>
+        <Bottomtext
+          onClick={() => (window.location.href = "https://int.store")}
+        >
+          {" "}
+          {I18n.get("IBrand")}
+        </Bottomtext>
         <p
           className="fontRedHat cursor-pointer text-[14px] text-white"
           onClick={() =>

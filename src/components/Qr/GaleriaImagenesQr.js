@@ -51,7 +51,9 @@ const GaleriaImagenesQr = (props) => {
         </button>
       </NavLink>
       <footer className="absolute bottom-2 text-center text-[16px] font-light text-white sm:mt-10 lg:mt-[200px]">
-        <p>{I18n.get("IBrand")}</p>
+        <p onClick={() => (window.location.href = "https://int.store")}>
+          {I18n.get("IBrand")}
+        </p>
         <p
           className="fontRedHat cursor-pointer text-[14px] text-white"
           onClick={() =>

@@ -1,5 +1,6 @@
 import { Input } from "@mui/material";
 import eliceWhite from "../../Img/EliceWhiteTotal.svg";
+import logoBlack from "../../Img/logoBlack.svg";
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -86,7 +87,7 @@ export default function Transactions() {
           name="Transacciones INT"
           content="Ve las transacciones realizadas en la plataforma INT."
         />
-        <link rel="icon" href={eliceWhite} />
+        <link rel="icon" href={logoBlack} />
       </Helmet>
       <section className="fontRedHat flex h-full flex-col bg-black text-white lg:h-screen lg:flex-row">
         <div className="flex w-full flex-col items-center justify-center ">

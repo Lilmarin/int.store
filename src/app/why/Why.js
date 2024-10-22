@@ -3,7 +3,7 @@ import onlyLogo from "./Img/onlyLogo.svg";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
-import eliceWhite from "../../Img/EliceWhiteTotal.svg";
+import logoBlack from "../../Img/logoBlack.svg";
 import { Helmet } from "react-helmet-async";
 
 export default function Why() {
@@ -19,7 +19,7 @@ export default function Why() {
       <Helmet>
         <title>Why INT</title>
         <meta name="Why INT" content="El significado de la marca INT." />
-        <link rel="icon" href={eliceWhite} />
+        <link rel="icon" href={logoBlack} />
       </Helmet>
       <section
         className={`jusce relative flex  h-screen w-full flex-col

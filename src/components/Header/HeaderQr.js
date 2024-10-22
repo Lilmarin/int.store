@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import LogoTipo from "../../Img/Logotipo.png";
 import LogoEspanol from "../../Img/tagEspanol.png";
 // eslint-disable-next-line
-const Header = ({ selectedOption, handler, executeScroll }) => {
+const HeaderQr = ({ selectedOption, handler, executeScroll }) => {
   const [isOpen, setIsOpen] = useState(false);
   const language = localStorage.getItem("language") ?? "es";
   const [url, setUrl] = useState("");
@@ -23,11 +23,11 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
   const handleGoToCentro = () => {
     const path = window.location.pathname;
     if (path === "/") {
-      window.location.href = "https://centro.int.store";
+      window.location.href = "https://int.store";
       return;
     }
     // window.location.href = "https://why.int.store";
-    window.location.href = "https://centro.int.store";
+    window.location.href = "https://int.store";
   };
 
   return (
@@ -53,4 +53,4 @@ const Header = ({ selectedOption, handler, executeScroll }) => {
   );
 };
 
-export default Header;
+export default HeaderQr;

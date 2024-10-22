@@ -39,7 +39,10 @@ const Registro = () => {
           </H1Home>
           <HText>{I18n.get("RETool")}</HText>
           <div>
-            <Bottomtext className="btn-text pb-2">
+            <Bottomtext
+              className="btn-text pb-2"
+              onClick={() => (window.location.href = "https://int.store")}
+            >
               {I18n.get("IBrand")}
             </Bottomtext>
             <p
