@@ -13,29 +13,29 @@ import { getAllTransactions } from "../../services/transactions";
 import { formatNumber } from "../../lib/formatNumber";
 import { useSpring, animated } from "@react-spring/web";
 import { Helmet } from "react-helmet-async";
+import { useState, useEffect, useMemo } from "react";
 
 export default function Transactions() {
-  const [transactions, setTransactions] = React.useState([]);
-  const [allTransactions, setAllTransactions] = React.useState([]);
-  const [countTransactions, setCountTransactions] = React.useState(0);
-  const [loading, setLoading] = React.useState(true); // Maneja la primera carga
-  const [firstLoad, setFirstLoad] = React.useState(true); // Nuevo estado para la primera carga
-  const [animate, setAnimate] = React.useState(false); // Nuevo estado para la animación
+  const [search, setSearch] = useState("");
+  const [allTransactions, setAllTransactions] = useState([]);
+  const [countTransactions, setCountTransactions] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [firstLoad, setFirstLoad] = useState(true);
+  const [animate, setAnimate] = useState(false);
+
   const springProps = useSpring({
     from: { number: 0 },
     to: { number: countTransactions },
-    config: { tension: 120, friction: 14 }, // Ajusta la velocidad de la animación
+    config: { tension: 120, friction: 14 },
   });
 
   const fetchTransactions = async () => {
     try {
-      // Solo muestra el spinner en la primera carga
       if (firstLoad) {
         setLoading(true);
       }
 
       const data = await getAllTransactions();
-      setTransactions(data.transactions);
       setAllTransactions(data.transactions);
       setCountTransactions(data.totalCompletedTransactions);
       setLoading(false);
@@ -45,38 +45,39 @@ export default function Transactions() {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchTransactions();
 
     const interval = setInterval(() => {
-      fetchTransactions(); // Continúa actualizando las transacciones
-    }, 10000); // Actualiza cada 10 segundos
-    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+      fetchTransactions();
+    }, 10000);
+
+    return () => clearInterval(interval);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!firstLoad) {
       setAnimate(true);
-      const timeout = setTimeout(() => setAnimate(false), 500); // La animación dura 500ms
+      const timeout = setTimeout(() => setAnimate(false), 500);
       return () => clearTimeout(timeout);
     }
   }, [countTransactions]);
 
-  const handleSearchByID = (e) => {
-    const searchValue = e.target.value;
-
-    if (searchValue === "") {
-      setTransactions(allTransactions);
-    } else {
-      const filteredRows = allTransactions.filter(
-        (row) => row.id.toString() === searchValue,
-      );
-      setTransactions(filteredRows);
+  // useMemo para filtrar transacciones basado en 'search'
+  const filteredTransactions = useMemo(() => {
+    if (search === "") {
+      return allTransactions;
     }
+    return allTransactions.filter((row) => row.id.toString() === search);
+  }, [search, allTransactions]);
+
+  const handleSearchByID = (e) => {
+    setSearch(e.target.value);
   };
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleString("sv-SE", { timeZone: "UTC" }); // Formato YYYY-MM-DD HH:mm:ss
+    return date.toLocaleString("sv-SE", { timeZone: "UTC" });
   };
 
   return (
@@ -102,18 +103,6 @@ export default function Transactions() {
               Total transacciones
             </h1>
             <div className="flex h-[40px] w-full items-center justify-center rounded-full bg-white text-black">
-              {/* {loading ? (
-              <CircularProgress color="inherit" size={30} />
-            ) : (
-  <p
-  className={`text-[26px] font-light lg:text-[36px] transition-transform duration-500 ease-out ${
-    animate ? 'scale-110' : 'scale-100'
-  }`}
->
-  {formatNumber(countTransactions)}
-</p>
-
-            )} */}
               <animated.p className="text-[26px] font-light lg:text-[36px]">
                 {springProps.number.to((n) => formatNumber(Math.floor(n)))}
               </animated.p>
@@ -134,20 +123,20 @@ export default function Transactions() {
           <section className="flex h-full w-full flex-col items-center gap-5 sm:pt-0 lg:pt-10">
             <h1 className="text-[30px] font-bold">Últimas transacciones</h1>
             <Input
-              type="tel" // Usa "tel" para mostrar el teclado numérico en dispositivos móviles
+              type="tel"
               onChange={handleSearchByID}
               placeholder="Buscar Transacción ID"
               sx={{
                 width: "50%",
                 color: "white",
                 "&:before": {
-                  borderBottom: "1px solid white", // Default border
+                  borderBottom: "1px solid white",
                 },
                 "&:hover:not(.Mui-disabled):before": {
-                  borderBottom: "1px solid white", // Hover border
+                  borderBottom: "1px solid white",
                 },
                 "&:after": {
-                  borderBottom: "2px solid white", // Focus border
+                  borderBottom: "2px solid white",
                 },
               }}
             />
@@ -156,28 +145,14 @@ export default function Transactions() {
               sx={{
                 backgroundColor: "black",
                 color: "white",
-                height: "600px", // Mantener la altura para permitir el scroll
-                overflowY: "scroll", // Permitir el desplazamiento en el eje Y
+                height: "600px",
+                overflowY: "scroll",
                 "&::-webkit-scrollbar": {
                   display: "none",
                 },
-                "-ms-overflow-style": "none", // Para IE y Edge
-                "scrollbar-width": "none", // Para Firefox
               }}
             >
-              {/* {loading ? (
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "100%", // Asegura que el spinner se muestre en el centro verticalmente
-                }}
-              >
-                <CircularProgress color="inherit" />
-              </div>
-            ) :*/}
-              {transactions.length === 0 ? (
+              {filteredTransactions.length === 0 ? (
                 <p
                   variant="h6"
                   align="center"
@@ -194,11 +169,10 @@ export default function Transactions() {
                     textAlign: "center",
                     borderCollapse: "collapse",
                     "& th, & td": {
-                      // Tamaños de letra diferentes según la resolución
                       fontSize: {
-                        xs: "11px", // Para pantallas pequeñas (móviles)
-                        sm: "14px", // Para pantallas medianas (tabletas)
-                        md: "16px", // Para pantallas más grandes (laptops/desktops)
+                        xs: "11px",
+                        sm: "14px",
+                        md: "16px",
                       },
                     },
                   }}
@@ -212,18 +186,18 @@ export default function Transactions() {
                           textAlign: "center",
                           border: 0,
                           fontSize: "12px",
-                          padding: "8px", // Reducir el padding de las cabeceras
+                          padding: "8px",
                         },
                       }}
                     >
-                      <TableCell align="center">Transaccción ID</TableCell>
+                      <TableCell align="center">Transacción ID</TableCell>
                       <TableCell align="center">Tiempo</TableCell>
                       <TableCell align="center">Moneda</TableCell>
                       <TableCell align="center">Cantidad</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {transactions.map((row) => (
+                    {filteredTransactions.map((row) => (
                       <TableRow
                         key={row.id}
                         sx={{
@@ -231,7 +205,7 @@ export default function Transactions() {
                             color: "white",
                             textAlign: "center",
                             border: 0,
-                            padding: "8px", // Reducir el padding de las celdas
+                            padding: "8px",
                           },
                         }}
                       >
@@ -239,8 +213,7 @@ export default function Transactions() {
                           {formatNumber(row.id)}
                         </TableCell>
                         <TableCell align="center">
-                          {formatDate(row.paymentDate)}{" "}
-                          {/* Aplicar la función aquí */}
+                          {formatDate(row.paymentDate)}
                         </TableCell>
                         <TableCell align="center">MXN</TableCell>
                         <TableCell align="center">

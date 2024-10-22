@@ -151,7 +151,7 @@ function App() {
                       selectedOption={selectedOption}
                       handler={handler}
                     >
-                      <Qr />
+                      <Transactions />
                     </PageWrapper>
                   </>
                 )}
