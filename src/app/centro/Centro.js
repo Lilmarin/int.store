@@ -1,7 +1,6 @@
 import React from "react";
 import background_Purple from "../../Img/Backkground_Purple.png";
 import logo_white from "../../Img/LogoEspanol.png";
-import eliceWhite from "../../Img/EliceWhiteTotal.svg";
 import { Helmet } from "react-helmet-async";
 
 export default function Centro() {
@@ -14,8 +13,7 @@ export default function Centro() {
   };
 
   const handleGoToApp = () => {
-    window.location.href =
-      "https://intportal.vercel.app/TuDominio/terminal/MXN_";
+    window.location.href = "https://intportal.vercel.app/";
   };
 
   const handleGoToTransactions = () => {
