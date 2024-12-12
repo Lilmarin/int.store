@@ -105,6 +105,19 @@ const dict = {
     QRDowload: "QR generado con éxito",
     QrWhite: "Blanco",
     QrBlack: "Negro",
+    //Mision
+    Mision: "Misión",
+    MText1:
+      "El único objetivo del sistema tiene que ser hacernos más ricos a todos y lo hacemos apoyando a las clases más bajas primero a abrir negocios, sin pedir nada a cambio ni intereses. Simplemente dando el dinero.",
+    MText2:
+      "Millones de líneas de código e inteligencia artificial ayudándonos a tener mejores vidas, más abundantes y con más tiempo.",
+    MButton: "Crear un perfil GRATIS",
+    //Metricas
+    MetricaTitle: "Uso de recursos",
+    MetricaText1:
+      "De las utilidades, el 50% se reparte a los socios del sistema, 50% se da en prestamos 0% interés a los que creamos que van a causar más impacto positivo en la sociedad.",
+    MetricaText2:
+      "Se le paga muy bien a los empleados del sistema. Se busca contratar la menor cantidad de personal para ser los más eficientes posibles en la toma de desiciones.",
   },
   en: {
     //Traducciones de terminal
@@ -200,6 +213,19 @@ const dict = {
     QRDowload: "QR generated successfully",
     QrWhite: "White",
     QrBlack: "Black",
+    //Mision
+    Mision: "Mission",
+    MText1:
+      "The only objective of the system must be to make us all richer and we do it by supporting the lower classes first to open businesses, without asking for anything in return or interest. Simply giving the money.",
+    MText2:
+      "Millions of lines of code and artificial intelligence helping us to have better lives, more abundant and with more time.",
+    MButton: "Create a free profile",
+    //Metricas
+    MetricaTitle: "Resource usage",
+    MetricaText1:
+      "Of the profits, 50% is distributed to the system partners, 50% is given in loans 0% interest to those we believe will cause the most positive impact on society.",
+    MetricaText2:
+      "System employees are paid very well. We seek to hire the least amount of staff to be as efficient as possible in decision making.",
   },
 };
 export default dict;

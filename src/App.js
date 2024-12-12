@@ -21,6 +21,9 @@ import Transactions from "./app/transactions/Transactions";
 import Centro from "./app/centro/Centro";
 import Why from "./app/why/Why";
 import PageWrapperQr from "./components/PageWrapper/PageWrapperQr";
+import Mision from "./app/mision/Mision";
+import Metricas from "./app/metricas/Metricas";
+import Cobertura from "./app/cobertura/Cobertura";
 
 function App() {
   const pageDomain = window.location.host;
@@ -151,7 +154,7 @@ function App() {
                       selectedOption={selectedOption}
                       handler={handler}
                     >
-                      <Index />
+                      <Cobertura />
                     </PageWrapper>
                   </>
                 )}

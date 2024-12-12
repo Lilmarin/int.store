@@ -25,7 +25,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Generador de QR</title>
+        <title>INT</title>
         <meta
           name="Generador INT de QR GRATIS"
           content="Genera tantos QR como quieras completamente gratis, con QR de alta calidad."
