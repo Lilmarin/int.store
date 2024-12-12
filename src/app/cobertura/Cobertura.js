@@ -1,6 +1,5 @@
 import bgPurple from "../../Img/Backkground_Purple.png";
 import "../../components/Style/Registro.scss";
-import coin from "../../Img/Coin.webp";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import mexicosvg from "../../Img/country/México.svg";
@@ -8,11 +7,20 @@ import argentinasvg from "../../Img/country/Argentina.svg";
 import colombiasvg from "../../Img/country/Colombia.svg";
 import españasvg from "../../Img/country/España.svg";
 import usasvg from "../../Img/country/US.svg";
+import brazilsvg from "../../Img/country/Brazil.svg";
+import perusvg from "../../Img/country/Peru.svg";
+import venezuelasvg from "../../Img/country/Venezuela.svg";
+import chilesvg from "../../Img/country/Chile.svg";
+import guatemalasvg from "../../Img/country/Guatemala.svg";
+import ecuadorsvg from "../../Img/country/Ecuador.svg";
+import boliviasvg from "../../Img/country/Bolivia.svg";
 import Bitcoin from "../../Img/payments/Bitcoin.svg";
 import Coin from "../../Img/payments/Coin.svg";
 import Efectivo from "../../Img/payments/Efectivo.svg";
 import Tarjetas from "../../Img/payments/Tarjetas.svg";
 import Transferencia from "../../Img/payments/Transferencia.svg";
+import { Input, MenuItem, Select } from "@mui/material";
+import { I18n } from "aws-amplify/utils";
 
 const Cobertura = () => {
   const [selectedContinent, setSelectedContinent] = useState("América Latina");
@@ -28,9 +36,16 @@ const Cobertura = () => {
   ];
 
   const paises = [
+    { name: "Brazil", svg: brazilsvg, enabled: false },
     { name: "México", svg: mexicosvg, enabled: true },
-    { name: "Argentina", svg: argentinasvg, enabled: false },
     { name: "Colombia", svg: colombiasvg, enabled: false },
+    { name: "Argentina", svg: argentinasvg, enabled: false },
+    { name: "Perú", svg: perusvg, enabled: false },
+    { name: "Venezuela", svg: venezuelasvg, enabled: false },
+    { name: "Chile", svg: chilesvg, enabled: false },
+    { name: "Guatemala", svg: guatemalasvg, enabled: false },
+    { name: "Ecuador", svg: ecuadorsvg, enabled: false },
+    { name: "Bolivia", svg: boliviasvg, enabled: false },
     { name: "España", svg: españasvg, enabled: false },
     { name: "USA", svg: usasvg, enabled: false },
   ];
@@ -40,31 +55,31 @@ const Cobertura = () => {
       name: "Tarjetas",
       svg: Tarjetas,
       time: "5% 48h",
-      size: "w-[61px] h-[61px]",
+      size: "sm:w-[40px] lg:w-[61px] sm:h-[40px] lg:h-[61px]",
     },
     {
       name: "Efectivo",
       svg: Efectivo,
       time: "3% 24h",
-      size: "w-[61px] h-[61px]",
+      size: "sm:w-[40px] lg:w-[61px] sm:h-[40px] lg:h-[61px]",
     },
     {
       name: "Transferencia",
       svg: Transferencia,
       time: "2% 12h",
-      size: "w-[55px] h-[55px]",
+      size: "sm:w-[40px] lg:w-[55px] sm:h-[40px] lg:h-[55px]",
     },
     {
       name: "Bitcoin",
       svg: Bitcoin,
       time: "1% 1h",
-      size: "w-[61px] h-[61px]",
+      size: "sm:w-[40px] lg:w-[61px] sm:h-[40px] lg:h-[61px]",
     },
     {
       name: "INT",
       svg: Coin,
       time: "0% 0s",
-      size: "w-[50px] h-[50px]",
+      size: "sm:w-[40px] lg:w-[50px] sm:h-[40px] lg:h-[50px]",
     },
   ];
 
@@ -83,9 +98,10 @@ const Cobertura = () => {
         }}
         className="font-red-hat relative flex items-center justify-center pt-12 text-white"
       >
-        <section className="flex h-[654px] w-[1200px] flex-row items-center justify-center gap-14 rounded-xl bg-white">
-          <div className="flex h-[595px] w-[739px] flex-col ">
-            <section className="flex w-full flex-row gap-1 text-black">
+        <section className="flex items-center gap-14 rounded-xl bg-white sm:h-[750px] sm:w-[380px] sm:flex-col sm:justify-start sm:overflow-auto lg:h-[654px] lg:w-[1200px] lg:flex-row lg:justify-center lg:overflow-hidden ">
+          <div className="flex flex-col sm:h-full sm:w-full lg:h-[595px] lg:w-[739px] ">
+            {/**Continentes */}
+            <section className="w-full flex-row gap-1 text-black sm:hidden lg:flex">
               {continentes.map((continente, index) => (
                 <article
                   key={index}
@@ -106,8 +122,33 @@ const Cobertura = () => {
                 </article>
               ))}
             </section>
-            <div className="mt-5 flex h-full flex-row text-primary-50">
-              <section className="flex h-[444px] w-[262px] flex-col">
+            <section className="h-[60px] w-full items-center justify-center gap-4 sm:flex lg:hidden">
+              <Select
+                fullWidth={true}
+                value={selectedContinent}
+                onChange={(e) => setSelectedContinent(e.target.value)}
+              >
+                {continentes.map((continente, index) => (
+                  <MenuItem key={index} value={continente.name}>
+                    {continente.name}
+                  </MenuItem>
+                ))}
+              </Select>
+              <Select
+                fullWidth={true}
+                value={selectedCountry}
+                onChange={(e) => setSelectedCountry(e.target.value)}
+              >
+                {paises.map((pais, index) => (
+                  <MenuItem key={index} value={pais.name}>
+                    {pais.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </section>
+            <div className="flex h-full flex-row items-start text-primary-50 sm:mt-0 lg:mt-5">
+              {/**Paises */}
+              <section className="flex-col sm:hidden sm:h-full sm:w-full lg:flex lg:h-[444px] lg:w-[262px]">
                 {paises.map((pais, index) => (
                   <article
                     key={index}
@@ -133,12 +174,12 @@ const Cobertura = () => {
                   </article>
                 ))}
               </section>
-              <section className="flex h-full w-full flex-col items-center justify-center gap-1 shadow-xl">
+              <section className="flex h-full w-full flex-col items-center gap-1 sm:mt-3 sm:justify-start sm:px-10 lg:mt-0 lg:justify-center lg:px-0 lg:shadow-xl">
                 {payments.map((payment, index) => (
                   <>
                     <article
                       key={index}
-                      className="flex h-[76px] w-[327px] items-center justify-between gap-4"
+                      className="flex h-[76px] items-center justify-between gap-4 sm:w-full lg:w-[327px]"
                     >
                       <div className="flex w-[105px] flex-col items-center justify-center">
                         <img
@@ -148,11 +189,11 @@ const Cobertura = () => {
                         />
                         <p className="text-[14px] font-bold">{payment.name}</p>
                       </div>
-                      <p className="text-[40px] font-light text-black">
+                      <p className="font-light text-black sm:text-[30px] lg:text-[40px]">
                         {payment.time}
                       </p>
                     </article>
-                    <div className="h-[2px] w-1/2 bg-gray-30"></div>
+                    <div className="h-[2px] bg-gray-30 sm:w-full lg:w-1/2"></div>
                   </>
                 ))}
               </section>
@@ -164,10 +205,7 @@ const Cobertura = () => {
               title="TuDominio"
               className="h-[500px] w-full"
             ></iframe>
-            <p className="w-[239px] text-gray-70">
-              Tarifa real, todo incluido, simple, elegante, la terminal como
-              siempre debío de haber sido.
-            </p>
+            <p className="w-[239px] text-gray-70">{I18n.get("CText")}</p>
           </div>
         </section>
       </section>

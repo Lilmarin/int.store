@@ -118,6 +118,9 @@ const dict = {
       "De las utilidades, el 50% se reparte a los socios del sistema, 50% se da en prestamos 0% interés a los que creamos que van a causar más impacto positivo en la sociedad.",
     MetricaText2:
       "Se le paga muy bien a los empleados del sistema. Se busca contratar la menor cantidad de personal para ser los más eficientes posibles en la toma de desiciones.",
+    //Cobertura
+    CText:
+      "  Tarifa real, todo incluido, simple, elegante, la terminal como siempre debío de haber sido.",
   },
   en: {
     //Traducciones de terminal
@@ -226,6 +229,9 @@ const dict = {
       "Of the profits, 50% is distributed to the system partners, 50% is given in loans 0% interest to those we believe will cause the most positive impact on society.",
     MetricaText2:
       "System employees are paid very well. We seek to hire the least amount of staff to be as efficient as possible in decision making.",
+    //Cobertura
+    CText:
+      "Real rate, all inclusive, simple, elegant, the terminal as it should have always been.",
   },
 };
 export default dict;
