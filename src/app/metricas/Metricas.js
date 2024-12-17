@@ -8,7 +8,7 @@ const Metricas = () => {
   return (
     <>
       <Helmet>
-        <title>Metricas</title>
+        <title>INT Metricas</title>
       </Helmet>
       <section
         style={{

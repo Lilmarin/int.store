@@ -24,6 +24,7 @@ import PageWrapperQr from "./components/PageWrapper/PageWrapperQr";
 import Mision from "./app/mision/Mision";
 import Metricas from "./app/metricas/Metricas";
 import Cobertura from "./app/cobertura/Cobertura";
+import Blur from "./app/blur/Blur";
 
 function App() {
   const pageDomain = window.location.host;
@@ -154,7 +155,7 @@ function App() {
                       selectedOption={selectedOption}
                       handler={handler}
                     >
-                      <Cobertura />
+                      <Centro />
                     </PageWrapper>
                   </>
                 )}

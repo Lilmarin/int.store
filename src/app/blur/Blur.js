@@ -1,10 +1,12 @@
-import React from "react";
 import background_Purple from "../../Img/Backkground_Purple.png";
-import logo_white from "../../Img/LogoEspanol.png";
+import "../../components/Style/Registro.scss";
 import { Helmet } from "react-helmet-async";
+import logo_white from "../../Img/LogoEspanol.png";
+import { useState } from "react";
+import Transferencia from "../../Img/payments/Transferencia.svg";
+import { Input, MenuItem, Select } from "@mui/material";
 import { I18n } from "aws-amplify/utils";
-
-export default function Centro() {
+const Blur = () => {
   const handleGoToSignificado = () => {
     window.location.href = "https://why.int.store";
   };
@@ -32,13 +34,13 @@ export default function Centro() {
   const handleGoToCobertura = () => {
     window.location.href = "https://int.store/cobertura";
   };
-  const handleGoToBlur = () => {
-    window.location.href = "https://int.store/blur";
+  const handleGoToCentro = () => {
+    window.location.href = "https://int.store/centro";
   };
   return (
     <>
       <Helmet>
-        <title>INT Centro</title>
+        <title>INT Blurb</title>
         <meta name="INT Centro" content="Centro de la plataforma INT." />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
       </Helmet>
@@ -57,8 +59,11 @@ export default function Centro() {
             className=" sm:h-[80px] sm:w-[270px] lg:h-[200px] lg:w-[698px]"
           ></img>
           <div className="h-3 w-1/2 bg-white"></div>
-          <p className="w-full text-center text-[16px] text-white lg:text-[31px]">
-            {I18n.get("CText1")}
+          <p className="w-full text-center text-[16px] text-white lg:text-[20px]">
+            {I18n.get("BText1")}
+          </p>
+          <p className="w-full text-center text-[16px] text-white lg:text-[20px]">
+            {I18n.get("BText2")}
           </p>
           <section className="flex w-full flex-row flex-wrap items-center gap-5 sm:justify-normal lg:justify-between">
             <button
@@ -106,10 +111,10 @@ export default function Centro() {
               <p>Cobertura</p>
             </button>
             <button
-              onClick={handleGoToBlur}
+              onClick={handleGoToCentro}
               className=" lg:h-45px w-[90px] rounded-full bg-white p-3 text-[12px] text-primary-40 lg:text-[16px]"
             >
-              <p>Blur</p>
+              <p>Centro</p>
             </button>
           </section>
           <footer className="mt-20 flex flex-col items-center">
@@ -126,4 +131,5 @@ export default function Centro() {
       </section>
     </>
   );
-}
+};
+export default Blur;

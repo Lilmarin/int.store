@@ -86,7 +86,7 @@ const Cobertura = () => {
   return (
     <>
       <Helmet>
-        <title>Cobertura</title>
+        <title>INT Cobertura</title>
       </Helmet>
       <section
         style={{

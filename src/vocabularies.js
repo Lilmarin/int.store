@@ -120,7 +120,15 @@ const dict = {
       "Se le paga muy bien a los empleados del sistema. Se busca contratar la menor cantidad de personal para ser los más eficientes posibles en la toma de desiciones.",
     //Cobertura
     CText:
-      "  Tarifa real, todo incluido, simple, elegante, la terminal como siempre debío de haber sido.",
+      "Tarifa real, todo incluido, simple, elegante, la terminal como siempre debío de haber sido.",
+    //Blur
+    BText1:
+      "INT.store es una plataforma de pagos y comercio electrónico que permite a las PyMEs de América Latina vender productos offline y online utilizando una interfaz sencilla para la gestión del inventario, la promoción de productos y los pagos, con una herramienta de marketing inteligente integrada. ",
+    BText2:
+      "Con INT.store, un emprendedor puede empezar a cobrar pagos y vender en línea sin necesidad de equipo de soporte, utilizando un panel de control para la gestión de canales de venta e inventario.",
+    //Centro
+    CText1:
+      "Empoderamos a los emprendedores que quieren mejorar la sociedad y sus familias, con las herramientas necesarias para lograrlo en el menor tiempo posible.",
   },
   en: {
     //Traducciones de terminal
@@ -232,6 +240,14 @@ const dict = {
     //Cobertura
     CText:
       "Real rate, all inclusive, simple, elegant, the terminal as it should have always been.",
+    //Blur
+    BText1:
+      "INT.store is a payment and e-commerce platform that allows Latin American SMEs to sell products offline and online using a simple interface for inventory management, product promotion, and payments, with an integrated smart marketing tool.",
+    BText2:
+      "With INT.store, an entrepreneur can start collecting payments and selling online without the need for support staff, using a control panel for managing sales channels and inventory.",
+    //Centro
+    CText1:
+      "We empower entrepreneurs who want to improve society and their families, with the necessary tools to achieve it in the shortest possible time.",
   },
 };
 export default dict;
