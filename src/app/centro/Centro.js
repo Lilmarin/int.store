@@ -24,16 +24,16 @@ export default function Centro() {
     window.location.href = "https://int.store/qr";
   };
   const handleGoToMision = () => {
-    window.location.href = "https://int.store/mision";
+    window.location.href = "https://mision.int.store";
   };
   const handleGoToMetricas = () => {
-    window.location.href = "https://int.store/metricas";
+    window.location.href = "https://metricas.int.store";
   };
   const handleGoToCobertura = () => {
-    window.location.href = "https://int.store/cobertura";
+    window.location.href = "https://cobertura.int.store";
   };
   const handleGoToBlur = () => {
-    window.location.href = "https://int.store/blur";
+    window.location.href = "https://blurb.int.store";
   };
   return (
     <>
@@ -109,7 +109,7 @@ export default function Centro() {
               onClick={handleGoToBlur}
               className=" lg:h-45px w-[90px] rounded-full bg-white p-3 text-[12px] text-primary-40 lg:text-[16px]"
             >
-              <p>Blur</p>
+              <p>Blurb</p>
             </button>
           </section>
           <footer className="mt-20 flex flex-col items-center">

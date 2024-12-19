@@ -25,6 +25,7 @@ import Mision from "./app/mision/Mision";
 import Metricas from "./app/metricas/Metricas";
 import Cobertura from "./app/cobertura/Cobertura";
 import Blur from "./app/blur/Blur";
+import PageWrapperToIndex from "./components/PageWrapper/PageWrapperToIndex";
 
 function App() {
   const pageDomain = window.location.host;
@@ -145,18 +146,55 @@ function App() {
                   </>
                 )}
                 {pageDomain === "centro.int.store" && (
-                  <>
+                  <PageWrapperToIndex
+                    selectedOption={selectedOption}
+                    handler={handler}
+                  >
                     <Centro />
-                  </>
+                  </PageWrapperToIndex>
                 )}
-                {pageDomain === "localhost:3000" && (
+                {pageDomain === "mision.int.store" && (
+                  <PageWrapper
+                    selectedOption={selectedOption}
+                    handler={handler}
+                  >
+                    <Mision />
+                  </PageWrapper>
+                )}
+                {pageDomain === "metricas.int.store" && (
+                  <PageWrapper
+                    selectedOption={selectedOption}
+                    handler={handler}
+                  >
+                    <Metricas />
+                  </PageWrapper>
+                )}
+                {pageDomain === "cobertura.int.store" && (
+                  <PageWrapper
+                    selectedOption={selectedOption}
+                    handler={handler}
+                  >
+                    <Cobertura />
+                  </PageWrapper>
+                )}
+                {pageDomain === "blurb.int.store" && (
+                  <PageWrapperToIndex
+                    selectedOption={selectedOption}
+                    handler={handler}
+                  >
+                    <Blur />
+                  </PageWrapperToIndex>
+                )}
+                {(pageDomain === "localhost:3000" ||
+                  pageDomain ===
+                    "https://ldn3vr0r-3000.usw3.devtunnels.ms/") && (
                   <>
-                    <PageWrapper
+                    <PageWrapperToIndex
                       selectedOption={selectedOption}
                       handler={handler}
                     >
                       <Centro />
-                    </PageWrapper>
+                    </PageWrapperToIndex>
                   </>
                 )}
               </>

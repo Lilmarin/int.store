@@ -26,16 +26,16 @@ const Blur = () => {
     window.location.href = "https://int.store/qr";
   };
   const handleGoToMision = () => {
-    window.location.href = "https://int.store/mision";
+    window.location.href = "https://mision.int.store";
   };
   const handleGoToMetricas = () => {
-    window.location.href = "https://int.store/metricas";
+    window.location.href = "https://metricas.int.store";
   };
   const handleGoToCobertura = () => {
-    window.location.href = "https://int.store/cobertura";
+    window.location.href = "https://cobertura.int.store";
   };
   const handleGoToCentro = () => {
-    window.location.href = "https://int.store/centro";
+    window.location.href = "https://centro.int.store";
   };
   return (
     <>
