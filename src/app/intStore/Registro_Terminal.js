@@ -114,7 +114,7 @@ const Registro = () => {
           ></iframe> */}
         </div>
       </div>
-      <footer className="absolute bottom-2 w-full flex-col text-center text-primary-50 sm:flex lg:hidden">
+      <footer className="w-full text-center text-primary-50 sm:flex sm:flex-col lg:absolute lg:bottom-2 lg:hidden">
         <p
           className="cursor-pointer text-[12px] font-light"
           onClick={() => (window.location.href = "https://int.store")}

@@ -193,7 +193,7 @@ function App() {
                       selectedOption={selectedOption}
                       handler={handler}
                     >
-                      <Centro />
+                      <Index />
                     </PageWrapperToIndex>
                   </>
                 )}
