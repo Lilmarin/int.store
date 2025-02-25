@@ -185,7 +185,7 @@ function App() {
                     <Blur />
                   </PageWrapperToIndex>
                 )}
-                {(pageDomain === "localhost:3000" ||
+                {(pageDomain === "localhost:3002" ||
                   pageDomain ===
                     "https://ldn3vr0r-3000.usw3.devtunnels.ms/") && (
                   <>
@@ -193,7 +193,7 @@ function App() {
                       selectedOption={selectedOption}
                       handler={handler}
                     >
-                      <Index />
+                      <Blur />
                     </PageWrapperToIndex>
                   </>
                 )}

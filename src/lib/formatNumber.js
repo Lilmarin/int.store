@@ -20,3 +20,23 @@ export const formatNumber = (num) => {
   }
   return formattedNumber;
 };
+
+export const onlyTwoDecimals = (value) => {
+  const cleanedNumber = value.replace(/,/g, "").replace(/'/g, "");
+  const [integerPart, decimalPart] = cleanedNumber.split(".");
+  if (decimalPart && decimalPart.length > 2) {
+    return `${integerPart}.${decimalPart.slice(0, 2)}`;
+  }
+  return value;
+};
+
+export const formatDate = (date) => {
+  const newDate = new Date(date);
+  const day = newDate.getDate();
+  const month = newDate.getMonth() + 1;
+  const year = newDate.getFullYear();
+  const hours = newDate.getHours();
+  const minutes = newDate.getMinutes();
+  const seconds = newDate.getSeconds();
+  return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+};

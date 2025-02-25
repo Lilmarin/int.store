@@ -1,7 +1,7 @@
 import background_Purple from "../../Img/Backkground_Purple.png";
 import "../../components/Style/Registro.scss";
 import { Helmet } from "react-helmet-async";
-import logo_white from "../../Img/LogoEspanol.png";
+import logo_white from "../../Img/logoWhite.svg";
 import { useState } from "react";
 import Transferencia from "../../Img/payments/Transferencia.svg";
 import { Input, MenuItem, Select } from "@mui/material";
@@ -58,7 +58,7 @@ const Blur = () => {
             alt="Logotipo Español"
             className=" sm:h-[80px] sm:w-[270px] lg:h-[200px] lg:w-[698px]"
           ></img>
-          <div className="h-3 w-1/2 bg-white"></div>
+          <div className="h-3 w-1/2 bg-white sm:hidden lg:block"></div>
           <p className="w-full text-center text-[16px] text-white lg:text-[20px]">
             {I18n.get("BText1")}
           </p>

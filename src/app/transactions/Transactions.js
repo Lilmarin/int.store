@@ -10,7 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { getAllTransactions } from "../../services/transactions";
-import { formatNumber } from "../../lib/formatNumber";
+import { formatNumber, onlyTwoDecimals } from "../../lib/formatNumber";
 import { useSpring, animated } from "@react-spring/web";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect, useMemo } from "react";
@@ -119,8 +119,8 @@ export default function Transactions() {
           </section>
         </div>
 
-        <div className="flex h-full w-full flex-col items-center justify-start ">
-          <section className="flex h-full w-full flex-col items-center gap-5 sm:pt-0 lg:pt-10">
+        <div className="flex w-full flex-col items-center justify-center ">
+          <section className="flex h-full w-full flex-col items-center justify-center gap-5 sm:pt-0 lg:pt-10">
             <h1 className="text-[30px] font-bold">Últimas transacciones</h1>
             <Input
               type="tel"
@@ -217,7 +217,7 @@ export default function Transactions() {
                         </TableCell>
                         <TableCell align="center">MXN</TableCell>
                         <TableCell align="center">
-                          $ {formatNumber(row.amount)}
+                          $ {formatNumber(onlyTwoDecimals(row.amount))}
                         </TableCell>
                       </TableRow>
                     ))}
